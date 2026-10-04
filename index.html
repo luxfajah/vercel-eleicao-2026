@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Apuração Presidencial 2026 • TSE Oficial</title>
+  <title>Apuração & Eleitos 2026 • TSE Oficial</title>
   <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
     
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background-color: #f8fafc;
+      background-color: #f1f5f9;
       color: #0f172a;
     }
 
@@ -71,9 +71,9 @@
 </head>
 <body class="min-h-screen flex flex-col justify-between">
 
-  <!-- TOP BAR: MINIMALISTA & DIRETA -->
-  <header class="bg-slate-900 text-white border-b border-slate-800 px-4 py-3 sticky top-0 z-40 shadow-sm">
-    <div class="max-w-6xl mx-auto flex items-center justify-between gap-3">
+  <!-- TOP BAR NAVEGAÇÃO -->
+  <header class="bg-slate-900 text-white border-b border-slate-800 px-4 py-3 sticky top-0 z-40 shadow-md">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
       
       <!-- Brand & Status -->
       <div class="flex items-center gap-3">
@@ -81,32 +81,71 @@
         <div class="flex items-center gap-2">
           <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 pulse-live"></span>
           <span class="text-xs sm:text-sm font-bold text-white tracking-tight" id="live-indicator">
-            Apuração Presidencial 2026 • Ao Vivo (1s)
+            Eleições Gerais 2026 • Ao Vivo (1s)
           </span>
         </div>
       </div>
 
-      <!-- BOTÃO DE ANÁLISE E PROJEÇÃO COM MARCO DINÂMICO A CADA 3% -->
-      <button onclick="openAnalysisModal()" id="btn-open-analysis" class="flex items-center gap-2 bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-400 hover:to-yellow-400 active:scale-95 text-slate-950 font-black text-xs sm:text-sm px-4 py-2 rounded-xl shadow-lg transition-all">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-        </svg>
-        <span>Projeção • Flávio ganha?</span>
-        <span id="badge-milestone" class="bg-slate-950 text-amber-300 text-[10px] px-2 py-0.5 rounded-full font-black tracking-tight shadow">
-          Marco 27%
-        </span>
-      </button>
+      <!-- Links Rápidos -->
+      <div class="flex items-center gap-2 text-xs">
+        <a href="#secao-analise" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold transition">
+          📊 Projeção Presidencial
+        </a>
+        <a href="#secao-mapa" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold transition">
+          🗺️ Mapa Brasil
+        </a>
+        <a href="#secao-eleitos" class="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-black transition shadow">
+          🏆 Eleitos nos Estados
+        </a>
+      </div>
 
     </div>
   </header>
 
-  <!-- CONTEÚDO PRINCIPAL TOTALMENTE SIMPLIFICADO -->
-  <main class="max-w-6xl mx-auto px-4 py-6 w-full space-y-6">
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main class="max-w-7xl mx-auto px-3 sm:px-6 py-6 w-full space-y-8">
 
-    <!-- PLACAR CENTRAL: FLÁVIO VS LULA -->
-    <section class="bg-white rounded-2xl p-5 sm:p-6 shadow-sm border border-slate-200">
+    <!-- 1. SEÇÃO DE ANÁLISE / PROJEÇÃO NO INÍCIO DA TELA (DESTAQUE MÁXIMO) -->
+    <section id="secao-analise" class="bg-white rounded-3xl p-5 sm:p-7 shadow-sm border border-slate-200 space-y-6">
       
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
+      <!-- Cabeçalho da Análise com Marco Dinâmico a cada 3% -->
+      <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-4">
+        <div>
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="bg-amber-100 text-amber-900 font-black text-[11px] px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+              Inteligência Eleitoral Preditiva
+            </span>
+            <span id="topo-marco-badge" class="bg-slate-900 text-amber-300 font-black text-[11px] px-3 py-0.5 rounded-full shadow-sm">
+              Marco: --% apurado
+            </span>
+            <span class="text-xs text-slate-400 font-medium">Revisão estatística automática a cada 3%</span>
+          </div>
+          <h1 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight mt-1.5">
+            Projeção Oficial: Flávio Bolsonaro vs Lula & Cenário de 2º Turno
+          </h1>
+        </div>
+
+        <div class="text-right">
+          <span class="text-[11px] text-slate-400 block font-semibold">Probabilidade Estimada:</span>
+          <span class="text-xs sm:text-sm font-black px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-800 border border-emerald-200 inline-block shadow-sm" id="prob-segundo-turno">
+            2º Turno: 99,8% de Certeza
+          </span>
+        </div>
+      </div>
+
+      <!-- Barra do Ciclo de 3% -->
+      <div class="bg-amber-50/70 border border-amber-200 rounded-2xl p-3.5 space-y-1.5">
+        <div class="flex justify-between text-xs font-bold text-amber-950">
+          <span id="ciclo-label-atual">Ciclo Ativo: --% apurado</span>
+          <span id="ciclo-label-proximo" class="text-amber-800">Próxima revisão em --%</span>
+        </div>
+        <div class="w-full bg-amber-200/60 rounded-full h-2 overflow-hidden">
+          <div id="ciclo-progresso-bar" class="bg-amber-500 h-2 rounded-full transition-all duration-500" style="width: 50%"></div>
+        </div>
+      </div>
+
+      <!-- PLACAR CENTRAL NACIONAL -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center bg-slate-50/70 p-5 rounded-2xl border border-slate-200/80">
         
         <!-- Flávio Bolsonaro -->
         <div class="md:col-span-5 flex items-center gap-4">
@@ -114,7 +153,7 @@
             22
           </div>
           <div class="min-w-0">
-            <span class="text-xs font-bold text-blue-700 uppercase tracking-wide">PL • 1º Lugar</span>
+            <span class="text-xs font-bold text-blue-700 uppercase tracking-wide">PL • 1º Colocado</span>
             <h2 class="text-lg sm:text-xl font-black text-slate-900 truncate leading-tight">FLÁVIO BOLSONARO</h2>
             <div class="flex items-baseline gap-2 mt-0.5">
               <span class="text-3xl sm:text-4xl font-black text-blue-700 tracking-tight" id="nat-flavio-pct">--%</span>
@@ -123,8 +162,8 @@
           </div>
         </div>
 
-        <!-- Barra Central de Urnas Apuradas -->
-        <div class="md:col-span-2 text-center py-2 md:py-0 border-y md:border-y-0 md:border-x border-slate-100 px-3">
+        <!-- Centro: Urnas Apuradas -->
+        <div class="md:col-span-2 text-center py-2 md:py-0 border-y md:border-y-0 md:border-x border-slate-200 px-3">
           <span class="text-[11px] font-bold text-slate-400 uppercase block tracking-wider">Urnas Apuradas</span>
           <span class="text-2xl sm:text-3xl font-black text-emerald-600 tracking-tight" id="nat-urnas-pct">--%</span>
           <span class="text-[11px] font-medium text-slate-500 block" id="nat-secoes-label">-- / --</span>
@@ -133,7 +172,7 @@
         <!-- Lula -->
         <div class="md:col-span-5 flex items-center justify-end gap-4 text-right">
           <div class="min-w-0">
-            <span class="text-xs font-bold text-red-600 uppercase tracking-wide">PT • 2º Lugar</span>
+            <span class="text-xs font-bold text-red-600 uppercase tracking-wide">PT • 2º Colocado</span>
             <h2 class="text-lg sm:text-xl font-black text-slate-900 truncate leading-tight">LULA</h2>
             <div class="flex items-baseline justify-end gap-2 mt-0.5">
               <span class="text-xs font-semibold text-slate-500" id="nat-lula-votos">-- votos</span>
@@ -148,36 +187,98 @@
       </div>
 
       <!-- Barra Proporcional Flávio vs Lula -->
-      <div class="mt-5 w-full bg-slate-100 rounded-full h-3 overflow-hidden flex shadow-inner">
+      <div class="w-full bg-slate-200 rounded-full h-3 overflow-hidden flex shadow-inner">
         <div class="bg-blue-600 h-3 transition-all duration-700" id="bar-flavio" style="width: 50%"></div>
         <div class="bg-slate-300 h-3" id="bar-outros" style="width: 8%"></div>
         <div class="bg-red-600 h-3 transition-all duration-700" id="bar-lula" style="width: 42%"></div>
       </div>
 
-      <div class="mt-2 flex justify-between text-xs text-slate-400 font-medium">
-        <span class="text-blue-700 font-semibold" id="flavio-states-lead">Flávio lidera</span>
-        <span>Outros candidatos</span>
-        <span class="text-red-600 font-semibold" id="lula-states-lead">Lula lidera</span>
+      <!-- CARDS DE DIAGNÓSTICO & PROJEÇÃO MATEMÁTICA FINAL -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 pt-2">
+        
+        <!-- Veredito da Fase & Explicação de Por Que Não Liquida no 1º Turno -->
+        <div class="lg:col-span-7 bg-slate-900 text-white p-5 rounded-2xl space-y-3 shadow-md flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-xl">⚖️</span>
+              <h3 class="font-black text-base text-amber-400" id="fase-titulo">
+                Diagnóstico Oficial do Marco
+              </h3>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-200 leading-relaxed" id="fase-desc">
+              Carregando modelo preditivo...
+            </p>
+          </div>
+
+          <div class="p-3 bg-slate-800/80 rounded-xl border border-slate-700/60 text-xs text-slate-300 flex items-center justify-between">
+            <span><strong>Regra do 1º Turno:</strong> Exige 50% + 1 dos votos válidos.</span>
+            <span class="font-bold text-amber-400" id="fase-gap-1t">Flávio está abaixo do teto</span>
+          </div>
+        </div>
+
+        <!-- Projeção Preditiva Estado a Estado -->
+        <div class="lg:col-span-5 bg-white border border-slate-200 p-5 rounded-2xl space-y-3 shadow-sm">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+            <div>
+              <span class="text-[10px] font-black text-slate-400 uppercase tracking-wider block">Modelo Preditivo</span>
+              <h4 class="font-black text-sm text-slate-900">Projeção Final 1º Turno</h4>
+            </div>
+            <span class="text-xs text-slate-500 font-bold" id="proj-validos-label">-- votos</span>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <div class="p-3 bg-blue-50 border border-blue-200 rounded-xl">
+              <span class="text-[10px] font-bold text-blue-700 uppercase">Flávio (Projetado)</span>
+              <div class="text-2xl font-black text-blue-800" id="proj-flavio-pct">--%</div>
+              <span class="text-[11px] text-blue-600 font-semibold" id="proj-flavio-votos">-- votos</span>
+            </div>
+            <div class="p-3 bg-red-50 border border-red-200 rounded-xl">
+              <span class="text-[10px] font-bold text-red-700 uppercase">Lula (Projetado)</span>
+              <div class="text-2xl font-black text-red-800" id="proj-lula-pct">--%</div>
+              <span class="text-[11px] text-red-600 font-semibold" id="proj-lula-votos">-- votos</span>
+            </div>
+          </div>
+
+          <p class="text-[11px] text-slate-400 italic">
+            * Modelo ponderado considerando as urnas pendentes no interior do Nordeste e grandes centros urbanos.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- ONDE ESTÃO AS URNAS QUE FALTAM (BALANÇO REGIONAL) -->
+      <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 border border-slate-200/90 space-y-3">
+        <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+          <h4 class="text-xs sm:text-sm font-black text-slate-900 flex items-center gap-2">
+            <span>📍</span> Onde estão as urnas que faltam apurar? (Balanço das 5 Regiões)
+          </h4>
+          <span class="text-[11px] text-slate-500 font-semibold">TSE Oficial</span>
+        </div>
+
+        <div id="regional-table-box" class="overflow-x-auto">
+          <!-- Rendered dynamically -->
+        </div>
       </div>
 
     </section>
 
-    <!-- MAPA DO BRASIL: VISUAL LIMPO E PROEMINENTE -->
-    <section class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 relative">
+    <!-- 2. SEÇÃO DO MAPA DO BRASIL -->
+    <section id="secao-mapa" class="bg-white rounded-3xl p-5 sm:p-7 shadow-sm border border-slate-200 space-y-4">
       
-      <div class="flex flex-wrap items-center justify-between gap-3 mb-3 pb-2 border-b border-slate-100">
-        <div class="flex items-center gap-4 text-xs font-bold">
-          <div class="flex items-center gap-1.5">
-            <span class="w-3.5 h-3.5 rounded bg-blue-600 inline-block shadow-sm"></span>
-            <span class="text-slate-800">Flávio na frente</span>
-          </div>
-          <div class="flex items-center gap-1.5">
-            <span class="w-3.5 h-3.5 rounded bg-red-600 inline-block shadow-sm"></span>
-            <span class="text-slate-800">Lula na frente</span>
-          </div>
+      <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-3">
+        <div>
+          <h2 class="text-lg sm:text-xl font-black text-slate-900">
+            Mapa Eleitoral do Brasil • Liderança por Estado
+          </h2>
+          <p class="text-xs text-slate-500">
+            Azul: Flávio Bolsonaro lidera • Vermelho: Lula lidera (Toque ou passe o mouse nos estados)
+          </p>
         </div>
 
-        <span class="text-xs text-slate-400">Passe o mouse ou toque nos estados para detalhes</span>
+        <div class="flex items-center gap-4 text-xs font-bold">
+          <span class="text-blue-700" id="flavio-states-lead">Flávio: -- estados</span>
+          <span class="text-red-600" id="lula-states-lead">Lula: -- estados</span>
+        </div>
       </div>
 
       <!-- MAPA SVG -->
@@ -499,13 +600,13 @@
 
       </div>
 
-      <!-- Floating State Card (Quando clica em um estado) -->
-      <div id="state-detail-box" class="mt-3 p-3.5 bg-slate-50 border border-slate-200 rounded-xl flex flex-wrap items-center justify-between gap-4 text-xs">
+      <!-- Card do Estado Selecionado -->
+      <div id="state-detail-box" class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-2xl flex flex-wrap items-center justify-between gap-4 text-xs">
         <div class="flex items-center gap-3">
-          <span class="w-9 h-9 rounded-lg bg-slate-900 text-white font-black text-sm flex items-center justify-center" id="sel-uf">BR</span>
+          <span class="w-10 h-10 rounded-xl bg-slate-900 text-white font-black text-sm flex items-center justify-center" id="sel-uf">BR</span>
           <div>
-            <h4 class="font-black text-slate-900 text-sm" id="sel-nome">Brasil (Geral)</h4>
-            <span class="text-slate-500" id="sel-urnas">Carregando...</span>
+            <h4 class="font-black text-slate-900 text-sm" id="sel-nome">Brasil (Total)</h4>
+            <span class="text-slate-500" id="sel-urnas">Apurando...</span>
           </div>
         </div>
 
@@ -527,39 +628,112 @@
 
     </section>
 
-  </main>
-
-  <!-- MODAL DE ANÁLISE ELEITORAL E PROJEÇÃO DINÂMICA REFEITA A CADA 3% -->
-  <div id="analysis-modal" class="fixed inset-0 bg-slate-950/75 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden opacity-0 transition-opacity duration-200">
-    <div class="bg-white rounded-3xl max-w-3xl w-full max-h-[92vh] overflow-y-auto shadow-2xl border border-slate-200 p-6 sm:p-8 space-y-6">
+    <!-- 3. SEÇÃO DE ELEITOS E LÍDERES NOS ESTADOS COM FILTROS -->
+    <section id="secao-eleitos" class="bg-white rounded-3xl p-5 sm:p-7 shadow-sm border border-slate-200 space-y-6">
       
-      <!-- Modal Header -->
-      <div class="flex items-start justify-between border-b border-slate-100 pb-4">
+      <!-- Cabeçalho da Seção de Eleitos -->
+      <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-4">
         <div>
-          <div class="flex flex-wrap items-center gap-2">
-            <span class="text-[11px] font-black px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 uppercase tracking-wide">
-              Inteligência Eleitoral • Modelo Preditivo
-            </span>
-            <span id="modal-milestone-tag" class="text-[11px] font-bold px-2 py-0.5 rounded-full bg-slate-900 text-amber-400">
-              Marco de 27% apurado
-            </span>
-          </div>
-          <h3 class="text-lg sm:text-xl font-black text-slate-900 mt-1.5">
-            Com base nas últimas eleições, qual a projeção de vitória ou cenário?
-          </h3>
+          <span class="bg-emerald-100 text-emerald-900 font-black text-[11px] px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+            Resultado Estadual • Pleito Oficial TSE
+          </span>
+          <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight mt-1">
+            Governadores, Senadores e Deputados Eleitos e Líderes
+          </h2>
+          <p class="text-xs text-slate-500">
+            Filtre por cargo, estado ou busque o candidato pelo nome ou partido.
+          </p>
         </div>
-        <button onclick="closeAnalysisModal()" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center font-bold text-lg transition flex-shrink-0">
-          &times;
-        </button>
+
+        <span class="text-xs font-bold text-slate-600 bg-slate-100 px-3 py-1.5 rounded-xl" id="cands-counter-badge">
+          Carregando candidatos...
+        </span>
       </div>
 
-      <!-- Dynamic Modal Content (Rebuilt every 3% milestone) -->
-      <div id="analysis-dynamic-content" class="space-y-5">
-        <!-- Rendered by JavaScript -->
+      <!-- BARRA DE FILTROS INTERATIVOS -->
+      <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200/90 space-y-3">
+        
+        <!-- Filtro por Cargo (Abas/Pills) -->
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="text-xs font-bold text-slate-500 mr-1">Cargo:</span>
+          <button onclick="setFilterCargo('todos')" id="btn-cargo-todos" class="btn-cargo px-3 py-1.5 rounded-xl font-bold text-xs bg-slate-900 text-white shadow-sm transition">
+            Todos os Cargos
+          </button>
+          <button onclick="setFilterCargo('Governador')" id="btn-cargo-Governador" class="btn-cargo px-3 py-1.5 rounded-xl font-bold text-xs bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 transition">
+            Governadores
+          </button>
+          <button onclick="setFilterCargo('Senador')" id="btn-cargo-Senador" class="btn-cargo px-3 py-1.5 rounded-xl font-bold text-xs bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 transition">
+            Senadores
+          </button>
+          <button onclick="setFilterCargo('Deputado Federal')" id="btn-cargo-Deputado Federal" class="btn-cargo px-3 py-1.5 rounded-xl font-bold text-xs bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 transition">
+            Deputados Federais
+          </button>
+          <button onclick="setFilterCargo('Estadual')" id="btn-cargo-Estadual" class="btn-cargo px-3 py-1.5 rounded-xl font-bold text-xs bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 transition">
+            Deputados Estaduais / Distritais
+          </button>
+        </div>
+
+        <!-- Filtros Secundários: Estado + Busca -->
+        <div class="grid grid-cols-1 sm:grid-cols-12 gap-3 pt-1">
+          
+          <!-- Dropdown por Estado (UF) -->
+          <div class="sm:col-span-4">
+            <label class="block text-[11px] font-bold text-slate-500 mb-1">Filtrar por Estado (UF):</label>
+            <select id="filter-uf" onchange="applyFilters()" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-xs font-bold text-slate-800 shadow-sm focus:outline-none focus:ring-2 focus:ring-slate-900">
+              <option value="todos">Todos os Estados (27 UFs)</option>
+              <option value="SP">São Paulo (SP)</option>
+              <option value="RJ">Rio de Janeiro (RJ)</option>
+              <option value="MG">Minas Gerais (MG)</option>
+              <option value="BA">Bahia (BA)</option>
+              <option value="RS">Rio Grande do Sul (RS)</option>
+              <option value="PR">Paraná (PR)</option>
+              <option value="PE">Pernambuco (PE)</option>
+              <option value="CE">Ceará (CE)</option>
+              <option value="SC">Santa Catarina (SC)</option>
+              <option value="GO">Goiás (GO)</option>
+              <option value="DF">Distrito Federal (DF)</option>
+              <option value="ES">Espírito Santo (ES)</option>
+              <option value="PA">Pará (PA)</option>
+              <option value="MA">Maranhão (MA)</option>
+              <option value="MT">Mato Grosso (MT)</option>
+              <option value="MS">Mato Grosso do Sul (MS)</option>
+              <option value="PB">Paraíba (PB)</option>
+              <option value="RN">Rio Grande do Norte (RN)</option>
+              <option value="AL">Alagoas (AL)</option>
+              <option value="PI">Piauí (PI)</option>
+              <option value="SE">Sergipe (SE)</option>
+              <option value="RO">Rondônia (RO)</option>
+              <option value="TO">Tocantins (TO)</option>
+              <option value="AM">Amazonas (AM)</option>
+              <option value="AC">Acre (AC)</option>
+              <option value="AP">Amapá (AP)</option>
+              <option value="RR">Roraima (RR)</option>
+            </select>
+          </div>
+
+          <!-- Busca por Nome / Partido -->
+          <div class="sm:col-span-8">
+            <label class="block text-[11px] font-bold text-slate-500 mb-1">Buscar por Nome do Candidato ou Partido:</label>
+            <div class="relative">
+              <input type="text" id="filter-search" oninput="applyFilters()" placeholder="Ex: Tarcísio, Derrite, Pavanato, Erika Hilton, PL, PT..." class="w-full bg-white border border-slate-300 rounded-xl pl-9 pr-3 py-2 text-xs text-slate-800 shadow-sm focus:outline-none focus:ring-2 focus:ring-slate-900">
+              <svg class="w-4 h-4 text-slate-400 absolute left-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+              </svg>
+            </div>
+          </div>
+
+        </div>
+
       </div>
 
-    </div>
-  </div>
+      <!-- GRID DOS CARDS DE CANDIDATOS ELEITOS / LÍDERES -->
+      <div id="cands-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <!-- Rendered dynamically by JavaScript -->
+      </div>
+
+    </section>
+
+  </main>
 
   <!-- TOOLTIP FLUTUANTE DO MAPA -->
   <div id="map-tooltip" class="opacity-0 bg-slate-900/95 text-white text-xs rounded-xl py-2 px-3 shadow-xl border border-slate-700/60 pointer-events-none min-w-[140px]">
@@ -580,490 +754,4974 @@
   </div>
 
   <!-- FOOTER -->
-  <footer class="bg-white border-t border-slate-200 py-3 text-center text-xs text-slate-500">
-    <p>Dados Oficiais: Tribunal Superior Eleitoral (TSE) • Eleições Gerais 2026 • Atualização a cada 1 segundo</p>
+  <footer class="bg-white border-t border-slate-200 py-4 text-center text-xs text-slate-500 mt-10">
+    <p>Dados Oficiais: Tribunal Superior Eleitoral (TSE) • Pleito 6257 (Presidente) e Pleito 6259 (Governador, Senador, Deputados) • Ao Vivo</p>
   </footer>
 
-  <!-- DADOS REAIS TSE & MOTOR DE ANÁLISE DINÂMICA (RECALCULADA A CADA 3%) -->
+  <!-- DADOS & SCRIPTS -->
   <script>
     const TSE_DATA = {
     "PI":  {
-               "vv":  790707,
-               "zema":  633,
-               "cury":  19146,
-               "renan":  13420,
-               "st":  3817,
-               "flavio":  210773,
-               "flavioPct":  "26,66",
-               "lulaPct":  "67,91",
-               "pst":  "37,33",
-               "tv":  824824,
-               "lula":  536930,
+               "vv":  1609600,
+               "zema":  1108,
+               "cury":  36979,
+               "renan":  25564,
+               "st":  7717,
+               "flavio":  401112,
+               "flavioPct":  "24,92",
+               "lulaPct":  "69,95",
+               "pst":  "75,47",
+               "tv":  1680016,
+               "lula":  1125901,
                "uf":  "PI",
-               "caiado":  8709,
+               "caiado":  16832,
                "ts":  10225,
-               "ht":  "18:27:05"
+               "ht":  "19:16:34"
            },
     "AM":  {
-               "vv":  953625,
-               "zema":  1115,
-               "cury":  39224,
-               "renan":  18324,
-               "st":  3602,
-               "flavio":  477001,
-               "flavioPct":  "50,02",
-               "lulaPct":  "42,13",
-               "pst":  "44,16",
-               "tv":  983724,
-               "lula":  401775,
+               "vv":  1666300,
+               "zema":  1612,
+               "cury":  65063,
+               "renan":  30101,
+               "st":  6242,
+               "flavio":  800691,
+               "flavioPct":  "48,05",
+               "lulaPct":  "44,54",
+               "pst":  "76,52",
+               "tv":  1717898,
+               "lula":  742248,
                "uf":  "AM",
-               "caiado":  13947,
+               "caiado":  23041,
                "ts":  8157,
-               "ht":  "17:27:03"
+               "ht":  "18:16:29"
            },
     "SC":  {
-               "vv":  1162220,
-               "zema":  4826,
-               "cury":  36318,
-               "renan":  34343,
-               "st":  4566,
-               "flavio":  728193,
-               "flavioPct":  "62,66",
-               "lulaPct":  "28,68",
-               "pst":  "26,35",
-               "tv":  1198929,
-               "lula":  333323,
+               "vv":  3759667,
+               "zema":  14868,
+               "cury":  113122,
+               "renan":  112720,
+               "st":  14520,
+               "flavio":  2495356,
+               "flavioPct":  "66,37",
+               "lulaPct":  "25,19",
+               "pst":  "83,80",
+               "tv":  3881699,
+               "lula":  946877,
                "uf":  "SC",
-               "caiado":  22180,
+               "caiado":  68061,
                "ts":  17326,
-               "ht":  "18:26:38"
+               "ht":  "19:16:30"
            },
     "MT":  {
-               "vv":  1002915,
-               "zema":  1370,
-               "cury":  21266,
-               "renan":  17719,
-               "st":  4229,
-               "flavio":  655898,
-               "flavioPct":  "65,40",
-               "lulaPct":  "28,58",
-               "pst":  "51,03",
-               "tv":  1031961,
-               "lula":  286589,
+               "vv":  1789521,
+               "zema":  2226,
+               "cury":  36380,
+               "renan":  30273,
+               "st":  7455,
+               "flavio":  1173966,
+               "flavioPct":  "65,60",
+               "lulaPct":  "28,65",
+               "pst":  "89,96",
+               "tv":  1841898,
+               "lula":  512762,
                "uf":  "MT",
-               "caiado":  17564,
+               "caiado":  29950,
                "ts":  8287,
-               "ht":  "17:26:31"
+               "ht":  "18:16:26"
            },
     "RJ":  {
-               "vv":  893046,
-               "zema":  2413,
-               "cury":  23559,
-               "renan":  18865,
-               "st":  4070,
-               "flavio":  475168,
-               "flavioPct":  "53,21",
-               "lulaPct":  "39,31",
-               "pst":  "10,80",
-               "tv":  934137,
-               "lula":  351047,
+               "vv":  5079262,
+               "zema":  12449,
+               "cury":  133989,
+               "renan":  110279,
+               "st":  21552,
+               "flavio":  2717306,
+               "flavioPct":  "53,50",
+               "lulaPct":  "39,03",
+               "pst":  "57,21",
+               "tv":  5333611,
+               "lula":  1982594,
                "uf":  "RJ",
-               "caiado":  19416,
+               "caiado":  107491,
                "ts":  37675,
-               "ht":  "18:27:02"
+               "ht":  "19:16:34"
            },
     "CE":  {
-               "vv":  806822,
-               "zema":  1008,
-               "cury":  20668,
-               "renan":  17554,
-               "st":  3654,
-               "flavio":  268953,
-               "flavioPct":  "33,33",
-               "lulaPct":  "60,63",
-               "pst":  "15,38",
-               "tv":  844615,
-               "lula":  489203,
+               "vv":  2929855,
+               "zema":  2891,
+               "cury":  76247,
+               "renan":  60786,
+               "st":  12618,
+               "flavio":  961755,
+               "flavioPct":  "32,83",
+               "lulaPct":  "61,35",
+               "pst":  "53,09",
+               "tv":  3075758,
+               "lula":  1797418,
                "uf":  "CE",
-               "caiado":  8051,
+               "caiado":  26259,
                "ts":  23765,
-               "ht":  "18:27:02"
+               "ht":  "19:17:01"
            },
     "ES":  {
-               "vv":  1423850,
-               "zema":  4082,
-               "cury":  41059,
-               "renan":  33534,
-               "st":  6394,
-               "flavio":  799068,
-               "flavioPct":  "56,12",
-               "lulaPct":  "36,38",
-               "pst":  "64,95",
-               "tv":  1485480,
-               "lula":  517976,
+               "vv":  2160890,
+               "zema":  5713,
+               "cury":  62471,
+               "renan":  51123,
+               "st":  9491,
+               "flavio":  1189377,
+               "flavioPct":  "55,04",
+               "lulaPct":  "37,49",
+               "pst":  "96,41",
+               "tv":  2257599,
+               "lula":  810186,
                "uf":  "ES",
-               "caiado":  25303,
+               "caiado":  37697,
                "ts":  9844,
-               "ht":  "18:26:58"
+               "ht":  "19:16:11"
            },
     "AL":  {
-               "vv":  187291,
-               "zema":  124,
-               "cury":  4266,
-               "renan":  2480,
-               "st":  847,
-               "flavio":  71227,
-               "flavioPct":  "38,03",
-               "lulaPct":  "57,38",
-               "pst":  "11,93",
-               "tv":  199297,
-               "lula":  107473,
+               "vv":  702258,
+               "zema":  450,
+               "cury":  15901,
+               "renan":  9525,
+               "st":  2989,
+               "flavio":  269072,
+               "flavioPct":  "38,32",
+               "lulaPct":  "57,14",
+               "pst":  "42,09",
+               "tv":  746939,
+               "lula":  401291,
                "uf":  "AL",
-               "caiado":  1420,
+               "caiado":  4969,
                "ts":  7101,
-               "ht":  "18:26:21"
+               "ht":  "19:16:56"
            },
     "MA":  {
-               "vv":  915068,
-               "zema":  1245,
-               "cury":  20619,
-               "renan":  14398,
-               "st":  4446,
-               "flavio":  310884,
-               "flavioPct":  "33,97",
-               "lulaPct":  "60,49",
-               "pst":  "24,57",
-               "tv":  947682,
-               "lula":  553537,
+               "vv":  2473703,
+               "zema":  2981,
+               "cury":  54195,
+               "renan":  38210,
+               "st":  11536,
+               "flavio":  796306,
+               "flavioPct":  "32,19",
+               "lulaPct":  "62,50",
+               "pst":  "63,76",
+               "tv":  2563833,
+               "lula":  1546109,
                "uf":  "MA",
-               "caiado":  12970,
+               "caiado":  32485,
                "ts":  18093,
-               "ht":  "18:26:59"
+               "ht":  "19:17:00"
            },
     "MG":  {
-               "vv":  2975065,
-               "zema":  28561,
-               "cury":  104759,
-               "renan":  67267,
-               "st":  12606,
-               "flavio":  1466820,
-               "flavioPct":  "49,30",
-               "lulaPct":  "41,63",
-               "pst":  "24,21",
-               "tv":  3126761,
-               "lula":  1238383,
+               "vv":  8152717,
+               "zema":  71963,
+               "cury":  284361,
+               "renan":  176467,
+               "st":  35384,
+               "flavio":  4000766,
+               "flavioPct":  "49,07",
+               "lulaPct":  "42,18",
+               "pst":  "67,97",
+               "tv":  8592884,
+               "lula":  3438602,
                "uf":  "MG",
-               "caiado":  62076,
+               "caiado":  162938,
                "ts":  52062,
-               "ht":  "18:26:40"
+               "ht":  "19:16:33"
            },
     "TO":  {
-               "vv":  726677,
-               "zema":  488,
-               "cury":  17454,
-               "renan":  10317,
-               "st":  3475,
-               "flavio":  368090,
-               "flavioPct":  "50,65",
-               "lulaPct":  "43,15",
-               "pst":  "79,27",
-               "tv":  753235,
-               "lula":  313526,
+               "vv":  895129,
+               "zema":  579,
+               "cury":  21555,
+               "renan":  12453,
+               "st":  4227,
+               "flavio":  450015,
+               "flavioPct":  "50,27",
+               "lulaPct":  "43,59",
+               "pst":  "96,42",
+               "tv":  928329,
+               "lula":  390185,
                "uf":  "TO",
-               "caiado":  16084,
+               "caiado":  19472,
                "ts":  4384,
-               "ht":  "18:27:04"
+               "ht":  "19:16:22"
            },
     "AC":  {
-               "vv":  281507,
-               "zema":  377,
-               "cury":  8466,
-               "renan":  4900,
-               "st":  1388,
-               "flavio":  180571,
-               "flavioPct":  "64,14",
-               "lulaPct":  "28,84",
-               "pst":  "61,15",
-               "tv":  292751,
-               "lula":  81195,
+               "vv":  440884,
+               "zema":  528,
+               "cury":  12802,
+               "renan":  7615,
+               "st":  2145,
+               "flavio":  285521,
+               "flavioPct":  "64,76",
+               "lulaPct":  "28,47",
+               "pst":  "94,49",
+               "tv":  458786,
+               "lula":  125520,
                "uf":  "AC",
-               "caiado":  5498,
+               "caiado":  8135,
                "ts":  2270,
-               "ht":  "16:24:36"
+               "ht":  "17:16:23"
            },
     "RN":  {
-               "vv":  518480,
-               "zema":  362,
-               "cury":  14319,
-               "renan":  8669,
-               "st":  2218,
-               "flavio":  173499,
-               "flavioPct":  "33,46",
-               "lulaPct":  "61,10",
-               "pst":  "27,33",
-               "tv":  542641,
-               "lula":  316815,
+               "vv":  1402617,
+               "zema":  1052,
+               "cury":  38690,
+               "renan":  23925,
+               "st":  5664,
+               "flavio":  484736,
+               "flavioPct":  "34,56",
+               "lulaPct":  "59,95",
+               "pst":  "69,80",
+               "tv":  1469053,
+               "lula":  840860,
                "uf":  "RN",
-               "caiado":  4117,
+               "caiado":  11368,
                "ts":  8115,
-               "ht":  "18:26:37"
+               "ht":  "19:16:57"
            },
     "AP":  {
-               "vv":  111496,
-               "zema":  68,
-               "cury":  4242,
-               "renan":  2250,
-               "st":  559,
-               "flavio":  47260,
-               "flavioPct":  "42,39",
-               "lulaPct":  "49,98",
-               "pst":  "29,21",
-               "tv":  114143,
-               "lula":  55730,
+               "vv":  329983,
+               "zema":  235,
+               "cury":  13659,
+               "renan":  7826,
+               "st":  1440,
+               "flavio":  148022,
+               "flavioPct":  "44,86",
+               "lulaPct":  "46,60",
+               "pst":  "75,24",
+               "tv":  338256,
+               "lula":  153763,
                "uf":  "AP",
-               "caiado":  1776,
+               "caiado":  5763,
                "ts":  1914,
-               "ht":  "18:26:30"
+               "ht":  "19:16:17"
            },
     "RO":  {
-               "vv":  562869,
-               "zema":  764,
-               "cury":  16212,
-               "renan":  11993,
-               "st":  2722,
-               "flavio":  366144,
-               "flavioPct":  "65,05",
-               "lulaPct":  "27,76",
-               "pst":  "57,94",
-               "tv":  576851,
-               "lula":  156263,
+               "vv":  918370,
+               "zema":  1259,
+               "cury":  24202,
+               "renan":  18303,
+               "st":  4461,
+               "flavio":  617222,
+               "flavioPct":  "67,21",
+               "lulaPct":  "26,10",
+               "pst":  "94,96",
+               "tv":  940344,
+               "lula":  239714,
                "uf":  "RO",
-               "caiado":  10275,
+               "caiado":  16026,
                "ts":  4698,
-               "ht":  "17:27:05"
+               "ht":  "18:16:21"
            },
     "SE":  {
-               "vv":  358588,
-               "zema":  443,
-               "cury":  10946,
-               "renan":  6285,
-               "st":  1652,
-               "flavio":  122791,
-               "flavioPct":  "34,24",
-               "lulaPct":  "58,58",
-               "pst":  "27,89",
-               "tv":  376530,
-               "lula":  210063,
+               "vv":  1120664,
+               "zema":  1035,
+               "cury":  32976,
+               "renan":  18110,
+               "st":  4963,
+               "flavio":  353141,
+               "flavioPct":  "31,51",
+               "lulaPct":  "61,69",
+               "pst":  "83,79",
+               "tv":  1181736,
+               "lula":  691367,
                "uf":  "SE",
-               "caiado":  7402,
+               "caiado":  22139,
                "ts":  5923,
-               "ht":  "18:26:34"
+               "ht":  "19:17:01"
            },
     "PR":  {
-               "vv":  4422795,
-               "zema":  12507,
-               "cury":  140538,
-               "renan":  122237,
-               "st":  18277,
-               "flavio":  2665466,
-               "flavioPct":  "60,27",
-               "lulaPct":  "30,64",
-               "pst":  "67,34",
-               "tv":  4592085,
-               "lula":  1355117,
+               "vv":  6427798,
+               "zema":  16942,
+               "cury":  201119,
+               "renan":  174211,
+               "st":  26497,
+               "flavio":  3858180,
+               "flavioPct":  "60,02",
+               "lulaPct":  "31,04",
+               "pst":  "97,62",
+               "tv":  6677948,
+               "lula":  1995178,
                "uf":  "PR",
-               "caiado":  116861,
+               "caiado":  168076,
                "ts":  27142,
-               "ht":  "18:25:24"
+               "ht":  "19:15:37"
            },
     "PA":  {
-               "vv":  1793847,
-               "zema":  1588,
-               "cury":  52633,
-               "renan":  37542,
-               "st":  7739,
-               "flavio":  825862,
-               "flavioPct":  "46,04",
-               "lulaPct":  "47,29",
-               "pst":  "37,16",
-               "tv":  1871647,
-               "lula":  848264,
+               "vv":  3536209,
+               "zema":  2520,
+               "cury":  96401,
+               "renan":  66767,
+               "st":  15284,
+               "flavio":  1621239,
+               "flavioPct":  "45,85",
+               "lulaPct":  "48,13",
+               "pst":  "73,39",
+               "tv":  3685584,
+               "lula":  1702116,
                "uf":  "PA",
-               "caiado":  24005,
+               "caiado":  40944,
                "ts":  20827,
-               "ht":  "18:25:29"
+               "ht":  "19:16:57"
            },
     "GO":  {
-               "vv":  1257053,
-               "zema":  1011,
-               "cury":  18580,
-               "renan":  18517,
-               "st":  5355,
-               "flavio":  708060,
-               "flavioPct":  "56,33",
-               "lulaPct":  "28,81",
-               "pst":  "34,14",
-               "tv":  1302064,
-               "lula":  362163,
+               "vv":  3175216,
+               "zema":  2347,
+               "cury":  45715,
+               "renan":  46097,
+               "st":  13088,
+               "flavio":  1725699,
+               "flavioPct":  "54,35",
+               "lulaPct":  "30,31",
+               "pst":  "83,44",
+               "tv":  3293153,
+               "lula":  962547,
                "uf":  "GO",
-               "caiado":  147167,
+               "caiado":  389051,
                "ts":  15686,
-               "ht":  "18:27:03"
+               "ht":  "19:17:00"
            },
     "MS":  {
-               "vv":  1138815,
-               "zema":  2341,
-               "cury":  31320,
-               "renan":  25580,
-               "st":  5424,
-               "flavio":  681818,
-               "flavioPct":  "59,87",
-               "lulaPct":  "33,04",
-               "pst":  "76,33",
-               "tv":  1177647,
-               "lula":  376302,
+               "vv":  1457429,
+               "zema":  2762,
+               "cury":  38669,
+               "renan":  31502,
+               "st":  6939,
+               "flavio":  860829,
+               "flavioPct":  "59,06",
+               "lulaPct":  "34,15",
+               "pst":  "97,65",
+               "tv":  1507264,
+               "lula":  497650,
                "uf":  "MS",
-               "caiado":  19040,
+               "caiado":  23060,
                "ts":  7106,
-               "ht":  "17:26:03"
+               "ht":  "18:16:32"
            },
     "DF":  {
-               "vv":  1584048,
-               "zema":  4531,
-               "cury":  41179,
-               "renan":  41849,
-               "st":  6276,
-               "flavio":  811623,
-               "flavioPct":  "51,24",
+               "vv":  1753380,
+               "zema":  4895,
+               "cury":  45507,
+               "renan":  46191,
+               "st":  6901,
+               "flavio":  898955,
+               "flavioPct":  "51,27",
                "lulaPct":  "38,15",
-               "pst":  "90,06",
-               "tv":  1635897,
-               "lula":  604392,
+               "pst":  "99,02",
+               "tv":  1811195,
+               "lula":  668836,
                "uf":  "DF",
-               "caiado":  76105,
+               "caiado":  84164,
                "ts":  6969,
-               "ht":  "18:27:30"
+               "ht":  "19:16:27"
            },
     "BR":  {
-               "vv":  32087291,
-               "zema":  90792,
-               "cury":  943759,
-               "renan":  730686,
-               "st":  139204,
-               "flavio":  16317418,
-               "flavioPct":  "50,85",
-               "lulaPct":  "41,05",
-               "pst":  "27,88",
-               "tv":  33498176,
-               "lula":  13172611,
+               "vv":  75762826,
+               "zema":  220598,
+               "cury":  2247926,
+               "renan":  1772742,
+               "st":  323539,
+               "flavio":  37566895,
+               "flavioPct":  "49,58",
+               "lulaPct":  "42,25",
+               "pst":  "64,81",
+               "tv":  79394660,
+               "lula":  32007853,
                "uf":  "BR",
-               "caiado":  760906,
+               "caiado":  1774893,
                "ts":  499248,
-               "ht":  "18:23:39"
+               "ht":  "19:06:33"
            },
     "BA":  {
-               "vv":  1162085,
-               "zema":  1212,
-               "cury":  27657,
-               "renan":  17937,
-               "st":  5217,
-               "flavio":  343940,
-               "flavioPct":  "29,60",
-               "lulaPct":  "64,50",
-               "pst":  "14,71",
-               "tv":  1230511,
-               "lula":  749548,
+               "vv":  4443314,
+               "zema":  3921,
+               "cury":  104648,
+               "renan":  66367,
+               "st":  19199,
+               "flavio":  1311976,
+               "flavioPct":  "29,53",
+               "lulaPct":  "64,85",
+               "pst":  "54,12",
+               "tv":  4702865,
+               "lula":  2881323,
                "uf":  "BA",
-               "caiado":  19976,
+               "caiado":  68948,
                "ts":  35476,
-               "ht":  "18:25:27"
+               "ht":  "19:17:03"
            },
     "PB":  {
-               "vv":  1601059,
-               "zema":  1316,
-               "cury":  47510,
-               "renan":  28001,
-               "st":  7025,
-               "flavio":  532989,
-               "flavioPct":  "33,29",
-               "lulaPct":  "60,97",
-               "pst":  "65,58",
-               "tv":  1705978,
-               "lula":  976198,
+               "vv":  2356576,
+               "zema":  1900,
+               "cury":  69477,
+               "renan":  40167,
+               "st":  10088,
+               "flavio":  782423,
+               "flavioPct":  "33,20",
+               "lulaPct":  "61,13",
+               "pst":  "94,17",
+               "tv":  2515263,
+               "lula":  1440649,
                "uf":  "PB",
-               "caiado":  12645,
+               "caiado":  18481,
                "ts":  10712,
-               "ht":  "18:27:05"
+               "ht":  "19:16:28"
            },
     "RR":  {
-               "vv":  79230,
-               "zema":  70,
-               "cury":  1723,
-               "renan":  1149,
-               "st":  401,
-               "flavio":  54822,
-               "flavioPct":  "69,19",
-               "lulaPct":  "25,94",
-               "pst":  "26,40",
-               "tv":  80936,
-               "lula":  20551,
+               "vv":  302480,
+               "zema":  312,
+               "cury":  8089,
+               "renan":  6140,
+               "st":  1417,
+               "flavio":  215636,
+               "flavioPct":  "71,29",
+               "lulaPct":  "22,58",
+               "pst":  "93,29",
+               "tv":  309181,
+               "lula":  68297,
                "uf":  "RR",
-               "caiado":  812,
+               "caiado":  3439,
                "ts":  1519,
-               "ht":  "17:26:57"
+               "ht":  "18:16:14"
            },
     "RS":  {
-               "vv":  3056998,
-               "zema":  9102,
-               "cury":  94466,
-               "renan":  79135,
-               "st":  13184,
-               "flavio":  1736020,
-               "flavioPct":  "56,79",
-               "lulaPct":  "34,62",
-               "pst":  "47,86",
-               "tv":  3186191,
-               "lula":  1058312,
+               "vv":  5867900,
+               "zema":  17455,
+               "cury":  179908,
+               "renan":  153994,
+               "st":  25082,
+               "flavio":  3253734,
+               "flavioPct":  "55,45",
+               "lulaPct":  "35,88",
+               "pst":  "91,05",
+               "tv":  6122443,
+               "lula":  2105421,
                "uf":  "RS",
-               "caiado":  73650,
+               "caiado":  144526,
                "ts":  27547,
-               "ht":  "18:26:39"
+               "ht":  "19:15:42"
            },
     "PE":  {
-               "vv":  990432,
-               "zema":  1528,
-               "cury":  24421,
-               "renan":  16310,
-               "st":  4274,
-               "flavio":  326736,
-               "flavioPct":  "32,99",
-               "lulaPct":  "61,21",
-               "pst":  "19,96",
-               "tv":  1041054,
-               "lula":  606219,
+               "vv":  3247281,
+               "zema":  4131,
+               "cury":  80791,
+               "renan":  51791,
+               "st":  12922,
+               "flavio":  1046858,
+               "flavioPct":  "32,24",
+               "lulaPct":  "62,08",
+               "pst":  "60,33",
+               "tv":  3421347,
+               "lula":  2016059,
                "uf":  "PE",
-               "caiado":  13970,
+               "caiado":  43936,
                "ts":  21418,
-               "ht":  "19:24:28"
+               "ht":  "20:16:22"
            },
     "SP":  {
-               "vv":  3934452,
-               "zema":  13214,
-               "cury":  135398,
-               "renan":  116202,
-               "st":  17154,
-               "flavio":  2211082,
-               "flavioPct":  "56,20",
-               "lulaPct":  "34,51",
-               "pst":  "16,55",
-               "tv":  4166424,
-               "lula":  1357845,
+               "vv":  18228834,
+               "zema":  69301,
+               "cury":  652199,
+               "renan":  584645,
+               "st":  76665,
+               "flavio":  9597694,
+               "flavioPct":  "52,65",
+               "lulaPct":  "37,51",
+               "pst":  "73,96",
+               "tv":  19351913,
+               "lula":  6837625,
                "uf":  "SP",
-               "caiado":  88926,
+               "caiado":  426030,
                "ts":  103656,
-               "ht":  "18:25:01"
+               "ht":  "19:13:27"
            }
 };
+    const CANDS_DATA = [
+  {
+    "cargo": "Governador",
+    "uf": "AC",
+    "n": "11",
+    "nm": "MAILZA ASSIS CAMELI",
+    "nmu": "MAILZA ASSIS",
+    "sg": "PP",
+    "vap": 204080,
+    "pvap": "49,67",
+    "e": "n",
+    "pst": "94,01",
+    "status": "2º Turno (MAILZA ASSIS vs ALAN RICK)",
+    "badgeColor": "bg-amber-100 text-amber-800 border-amber-300",
+    "top2": {
+      "cargo": "Governador",
+      "uf": "AC",
+      "n": "10",
+      "nm": "ALAN RICK MIRANDA",
+      "nmu": "ALAN RICK",
+      "sg": "REPUBLICANOS",
+      "vap": 132053,
+      "pvap": "32,14",
+      "e": "n",
+      "pst": "94,01"
+    }
+  },
+  {
+    "cargo": "Senador",
+    "uf": "AC",
+    "n": "222",
+    "nm": "MARCIO MIGUEL BITTAR",
+    "nmu": "MARCIO BITTAR",
+    "sg": "PL",
+    "vap": 209180,
+    "pvap": "25,59",
+    "e": "n",
+    "pst": "94,01",
+    "status": "Eleito (1ª Vaga)",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Senador",
+    "uf": "AC",
+    "n": "100",
+    "nm": "CYLMARA FERNANDES DA ROCHA GRIPP",
+    "nmu": "MARA ROCHA",
+    "sg": "REPUBLICANOS",
+    "vap": 147525,
+    "pvap": "18,04",
+    "e": "n",
+    "pst": "94,01",
+    "status": "Eleito (2ª Vaga)",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "AC",
+    "n": "1101",
+    "nm": "MARIA DO SOCORRO NERI MEDEIROS DE SOUZA",
+    "nmu": "SOCORRO NERI",
+    "sg": "PP",
+    "vap": 36784,
+    "pvap": "8,41",
+    "e": "n",
+    "pst": "94,01",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "AC",
+    "n": "4422",
+    "nm": "ULYSSES FREITAS PEREIRA DE ARAUJO",
+    "nmu": "CORONEL ULYSSES",
+    "sg": "UNIÃO",
+    "vap": 31474,
+    "pvap": "7,20",
+    "e": "n",
+    "pst": "94,01",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "AC",
+    "n": "4444",
+    "nm": "FABIO GONÇALVES DE RUEDA",
+    "nmu": "DR. FÁBIO RUEDA",
+    "sg": "UNIÃO",
+    "vap": 30683,
+    "pvap": "7,02",
+    "e": "n",
+    "pst": "94,01",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "AC",
+    "n": "1533",
+    "nm": "PEDRO LUIS LONGO",
+    "nmu": "PEDRO LONGO",
+    "sg": "MDB",
+    "vap": 24345,
+    "pvap": "5,57",
+    "e": "n",
+    "pst": "94,01",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "AC",
+    "n": "11122",
+    "nm": "NICOLAU CANDIDO DA SILVA JUNIOR",
+    "nmu": "NICOLAU JÚNIOR",
+    "sg": "PP",
+    "vap": 16874,
+    "pvap": "3,82",
+    "e": "n",
+    "pst": "94,01",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "AC",
+    "n": "44777",
+    "nm": "FAGNER CALEGARIO DO NASCIMENTO",
+    "nmu": "FAGNER CALEGARIO",
+    "sg": "UNIÃO",
+    "vap": 12691,
+    "pvap": "2,87",
+    "e": "n",
+    "pst": "94,01",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "AC",
+    "n": "11444",
+    "nm": "ANDRE ROBERTO ROGERIO VALE DOS SANTOS",
+    "nmu": "ANDRÉ DA DROGA VALE",
+    "sg": "PP",
+    "vap": 12512,
+    "pvap": "2,83",
+    "e": "n",
+    "pst": "94,01",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "AC",
+    "n": "11555",
+    "nm": "FRANCISCO CLODOALDO DE SOUZA RODRIGUES",
+    "nmu": "CLODOALDO RODRIGUES",
+    "sg": "PP",
+    "vap": 12408,
+    "pvap": "2,81",
+    "e": "n",
+    "pst": "94,01",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Governador",
+    "uf": "AL",
+    "n": "15",
+    "nm": "JOSÉ RENAN VASCONCELOS CALHEIROS FILHO",
+    "nmu": "RENAN FILHO",
+    "sg": "MDB",
+    "vap": 339154,
+    "pvap": "51,59",
+    "e": "n",
+    "pst": "41,85",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200",
+    "top2": {
+      "cargo": "Governador",
+      "uf": "AL",
+      "n": "45",
+      "nm": "JOÃO HENRIQUE HOLANDA CALDAS",
+      "nmu": "JHC",
+      "sg": "PSDB",
+      "vap": 315799,
+      "pvap": "48,04",
+      "e": "n",
+      "pst": "41,85"
+    }
+  },
+  {
+    "cargo": "Senador",
+    "uf": "AL",
+    "n": "111",
+    "nm": "ARTHUR CESAR PEREIRA DE LIRA",
+    "nmu": "ARTHUR LIRA",
+    "sg": "PP",
+    "vap": 385402,
+    "pvap": "30,40",
+    "e": "n",
+    "pst": "41,85",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Senador",
+    "uf": "AL",
+    "n": "456",
+    "nm": "MARINA ANTUNES CANDIA E FIGUEIREDO",
+    "nmu": "MARINA JHC",
+    "sg": "PSDB",
+    "vap": 331899,
+    "pvap": "26,18",
+    "e": "n",
+    "pst": "41,85",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "AL",
+    "n": "1111",
+    "nm": "ALVARO LINS PEREIRA DE LIRA",
+    "nmu": "ALVINHO LIRA",
+    "sg": "PP",
+    "vap": 73288,
+    "pvap": "10,56",
+    "e": "n",
+    "pst": "41,85",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "AL",
+    "n": "5555",
+    "nm": "LUCIANO SURUAGY DO AMARAL FILHO",
+    "nmu": "LUCIANO AMARAL",
+    "sg": "PSD",
+    "vap": 63827,
+    "pvap": "9,20",
+    "e": "n",
+    "pst": "41,85",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "AL",
+    "n": "1515",
+    "nm": "ISNALDO BULHOES BARROS JUNIOR",
+    "nmu": "ISNALDO BULHÕES JR",
+    "sg": "MDB",
+    "vap": 57736,
+    "pvap": "8,32",
+    "e": "n",
+    "pst": "41,85",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "AL",
+    "n": "1190",
+    "nm": "FABIO MICHEY COSTA DA SILVA",
+    "nmu": "DELEGADO FABIO COSTA",
+    "sg": "PP",
+    "vap": 54266,
+    "pvap": "7,82",
+    "e": "n",
+    "pst": "41,85",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "AL",
+    "n": "15789",
+    "nm": "MARCELO VICTOR CORREIA DOS SANTOS",
+    "nmu": "MARCELO VICTOR",
+    "sg": "MDB",
+    "vap": 37318,
+    "pvap": "5,36",
+    "e": "n",
+    "pst": "41,85",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "AL",
+    "n": "22222",
+    "nm": "LUIZ ALBERTO ALVES TEIXEIRA",
+    "nmu": "CABO BEBETO",
+    "sg": "PL",
+    "vap": 33588,
+    "pvap": "4,83",
+    "e": "n",
+    "pst": "41,85",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "AL",
+    "n": "15111",
+    "nm": "RICARDO PEREIRA MELO",
+    "nmu": "RICARDO NEZINHO",
+    "sg": "MDB",
+    "vap": 27392,
+    "pvap": "3,94",
+    "e": "n",
+    "pst": "41,85",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "AL",
+    "n": "15100",
+    "nm": "PAULO ROBERTO ESEQUIEL DE MENDONCA",
+    "nmu": "PAULINHO MENDONÇA",
+    "sg": "MDB",
+    "vap": 26178,
+    "pvap": "3,76",
+    "e": "n",
+    "pst": "41,85",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Governador",
+    "uf": "AP",
+    "n": "55",
+    "nm": "ANTONIO PAULO DE OLIVEIRA FURLAN",
+    "nmu": "DR. FURLAN",
+    "sg": "PSD",
+    "vap": 195464,
+    "pvap": "61,27",
+    "e": "n",
+    "pst": "75,29",
+    "status": "Eleito (1º Turno)",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300",
+    "top2": {
+      "cargo": "Governador",
+      "uf": "AP",
+      "n": "44",
+      "nm": "CLÉCIO LUÍS VILHENA VIEIRA",
+      "nmu": "CLÉCIO",
+      "sg": "UNIÃO",
+      "vap": 122714,
+      "pvap": "38,46",
+      "e": "n",
+      "pst": "75,29"
+    }
+  },
+  {
+    "cargo": "Senador",
+    "uf": "AP",
+    "n": "200",
+    "nm": "RAYSSA CADENA FURLAN",
+    "nmu": "RAYSSA FURLAN",
+    "sg": "PODE",
+    "vap": 182901,
+    "pvap": "29,15",
+    "e": "n",
+    "pst": "75,29",
+    "status": "Eleito (1ª Vaga)",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Senador",
+    "uf": "AP",
+    "n": "555",
+    "nm": "LUIZ CANTUARIA BARRETO",
+    "nmu": "LUCAS BARRETO",
+    "sg": "PSD",
+    "vap": 148162,
+    "pvap": "23,61",
+    "e": "n",
+    "pst": "75,29",
+    "status": "Eleito (2ª Vaga)",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "AP",
+    "n": "4480",
+    "nm": "FELIPE EDSON PINTO",
+    "nmu": "FELIPE SHOW",
+    "sg": "UNIÃO",
+    "vap": 23880,
+    "pvap": "7,29",
+    "e": "n",
+    "pst": "75,29",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "AP",
+    "n": "1212",
+    "nm": "JOSENILDO SANTOS ABRANTES",
+    "nmu": "JOSENILDO",
+    "sg": "PDT",
+    "vap": 19374,
+    "pvap": "5,92",
+    "e": "n",
+    "pst": "75,29",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "AP",
+    "n": "4410",
+    "nm": "ALINE PARANHOS VARONIL GURGEL",
+    "nmu": "ALINE GURGEL",
+    "sg": "UNIÃO",
+    "vap": 17999,
+    "pvap": "5,50",
+    "e": "n",
+    "pst": "75,29",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "AP",
+    "n": "4444",
+    "nm": "MARCIO CLAY DA COSTA SERRAO",
+    "nmu": "MARCIO SERRÃO",
+    "sg": "UNIÃO",
+    "vap": 16227,
+    "pvap": "4,96",
+    "e": "n",
+    "pst": "75,29",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "AP",
+    "n": "12123",
+    "nm": "JOÃO PEDRO BRITO XAVIER GÓES",
+    "nmu": "JOÃO PEDRO",
+    "sg": "PDT",
+    "vap": 12782,
+    "pvap": "3,88",
+    "e": "n",
+    "pst": "75,29",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "AP",
+    "n": "44044",
+    "nm": "RODOLFO SOUSA FOLHA DO VALE",
+    "nmu": "RODOLFO VALE",
+    "sg": "UNIÃO",
+    "vap": 11020,
+    "pvap": "3,34",
+    "e": "n",
+    "pst": "75,29",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "AP",
+    "n": "12222",
+    "nm": "JACK HOUAT HARB",
+    "nmu": "JACK JK",
+    "sg": "PDT",
+    "vap": 10094,
+    "pvap": "3,06",
+    "e": "n",
+    "pst": "75,29",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "AP",
+    "n": "10800",
+    "nm": "HILDEGARD DE AZEVEDO GURGEL",
+    "nmu": "HILDEGARD GURGEL",
+    "sg": "REPUBLICANOS",
+    "vap": 8728,
+    "pvap": "2,65",
+    "e": "n",
+    "pst": "75,29",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Governador",
+    "uf": "AM",
+    "n": "55",
+    "nm": "OMAR JOSE ABDELAZIZ",
+    "nmu": "OMAR AZIZ",
+    "sg": "PSD",
+    "vap": 602877,
+    "pvap": "37,84",
+    "e": "n",
+    "pst": "76,65",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200",
+    "top2": {
+      "cargo": "Governador",
+      "uf": "AM",
+      "n": "22",
+      "nm": "MARIA DO CARMO SEFFAIR LINS DE ALBUQUERQUE",
+      "nmu": "PROFESSORA MARIA DO CARMO",
+      "sg": "PL",
+      "vap": 431814,
+      "pvap": "27,10",
+      "e": "n",
+      "pst": "76,65"
+    }
+  },
+  {
+    "cargo": "Senador",
+    "uf": "AM",
+    "n": "155",
+    "nm": "CARLOS EDUARDO DE SOUZA BRAGA",
+    "nmu": "EDUARDO BRAGA",
+    "sg": "MDB",
+    "vap": 898401,
+    "pvap": "30,68",
+    "e": "n",
+    "pst": "76,65",
+    "status": "Eleito (1ª Vaga)",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Senador",
+    "uf": "AM",
+    "n": "222",
+    "nm": "ALBERTO BARROS CAVALCANTE NETO",
+    "nmu": "CAPITÃO ALBERTO NETO",
+    "sg": "PL",
+    "vap": 736466,
+    "pvap": "25,15",
+    "e": "n",
+    "pst": "76,65",
+    "status": "Eleito (2ª Vaga)",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "AM",
+    "n": "2211",
+    "nm": "ALEXANDRE DA SILVA SALAZAR",
+    "nmu": "SARGENTO SALAZAR",
+    "sg": "PL",
+    "vap": 190529,
+    "pvap": "11,76",
+    "e": "n",
+    "pst": "76,65",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "AM",
+    "n": "1000",
+    "nm": "AMOM MANDEL LINS FILHO",
+    "nmu": "AMOM MANDEL",
+    "sg": "REPUBLICANOS",
+    "vap": 103975,
+    "pvap": "6,42",
+    "e": "n",
+    "pst": "76,65",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "AM",
+    "n": "1515",
+    "nm": "ADAIL JOSÉ FIGUEIREDO PINHEIRO",
+    "nmu": "ADAIL FILHO",
+    "sg": "MDB",
+    "vap": 87072,
+    "pvap": "5,37",
+    "e": "n",
+    "pst": "76,65",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "AM",
+    "n": "4477",
+    "nm": "FAUSTO VIEIRA DOS SANTOS JUNIOR",
+    "nmu": "FAUSTO JR",
+    "sg": "UNIÃO",
+    "vap": 84552,
+    "pvap": "5,22",
+    "e": "n",
+    "pst": "76,65",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "AM",
+    "n": "13610",
+    "nm": "JOSE RICARDO WENDLING",
+    "nmu": "ZÉ RICARDO",
+    "sg": "PT",
+    "vap": 67346,
+    "pvap": "4,14",
+    "e": "n",
+    "pst": "76,65",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "AM",
+    "n": "22122",
+    "nm": "DEBORA SALGUEIRO DE MENEZES",
+    "nmu": "DÉBORA MENEZES",
+    "sg": "PL",
+    "vap": 59201,
+    "pvap": "3,64",
+    "e": "n",
+    "pst": "76,65",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "AM",
+    "n": "44777",
+    "nm": "MARIO CESAR RODRIGUES BALDUINO",
+    "nmu": "MÁRIO CÉSAR FILHO",
+    "sg": "UNIÃO",
+    "vap": 51279,
+    "pvap": "3,15",
+    "e": "n",
+    "pst": "76,65",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "AM",
+    "n": "22222",
+    "nm": "PERICLES RODRIGUES DO NASCIMENTO",
+    "nmu": "DELEGADO PÉRICLES",
+    "sg": "PL",
+    "vap": 48930,
+    "pvap": "3,01",
+    "e": "n",
+    "pst": "76,65",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Governador",
+    "uf": "BA",
+    "n": "13",
+    "nm": "JERONIMO RODRIGUES SOUZA",
+    "nmu": "JERÔNIMO RODRIGUES",
+    "sg": "PT",
+    "vap": 2271926,
+    "pvap": "53,50",
+    "e": "n",
+    "pst": "53,35",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200",
+    "top2": {
+      "cargo": "Governador",
+      "uf": "BA",
+      "n": "44",
+      "nm": "ANTONIO CARLOS PEIXOTO DE MAGALHÃES NETO",
+      "nmu": "ACM NETO",
+      "sg": "UNIÃO",
+      "vap": 1950569,
+      "pvap": "45,93",
+      "e": "n",
+      "pst": "53,35"
+    }
+  },
+  {
+    "cargo": "Senador",
+    "uf": "BA",
+    "n": "133",
+    "nm": "RUI COSTA DOS SANTOS",
+    "nmu": "RUI COSTA",
+    "sg": "PT",
+    "vap": 2151613,
+    "pvap": "29,16",
+    "e": "n",
+    "pst": "53,35",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Senador",
+    "uf": "BA",
+    "n": "130",
+    "nm": "JAQUES WAGNER",
+    "nmu": "JAQUES WAGNER",
+    "sg": "PT",
+    "vap": 1972238,
+    "pvap": "26,73",
+    "e": "n",
+    "pst": "53,35",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "BA",
+    "n": "7000",
+    "nm": "MANOEL ISIDORIO DE SANTANA JUNIOR",
+    "nmu": "PASTOR SARGENTO ISIDÓRIO",
+    "sg": "AVANTE",
+    "vap": 147661,
+    "pvap": "3,54",
+    "e": "n",
+    "pst": "52,77",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "BA",
+    "n": "5510",
+    "nm": "ANTONIO LUIZ PARANHOS RIBEIRO LEITE DE BRITO",
+    "nmu": "ANTONIO BRITO",
+    "sg": "PSD",
+    "vap": 115541,
+    "pvap": "2,77",
+    "e": "n",
+    "pst": "52,77",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "BA",
+    "n": "7070",
+    "nm": "ORLANDO SULZ DE ALMEIDA NETO",
+    "nmu": "NETO CARLETTO",
+    "sg": "AVANTE",
+    "vap": 95674,
+    "pvap": "2,29",
+    "e": "n",
+    "pst": "52,77",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "BA",
+    "n": "1100",
+    "nm": "SANDRO ALEX DOS SANTOS SILVA FILHO",
+    "nmu": "SANDRO FILHO",
+    "sg": "PP",
+    "vap": 94389,
+    "pvap": "2,26",
+    "e": "n",
+    "pst": "52,77",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "BA",
+    "n": "55555",
+    "nm": "IVANA TEIXEIRA BASTOS",
+    "nmu": "IVANA BASTOS",
+    "sg": "PSD",
+    "vap": 91412,
+    "pvap": "2,27",
+    "e": "n",
+    "pst": "51,63",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "BA",
+    "n": "22380",
+    "nm": "DIEGO CASTRO BARBOSA",
+    "nmu": "DIEGO CASTRO",
+    "sg": "PL",
+    "vap": 87589,
+    "pvap": "2,18",
+    "e": "n",
+    "pst": "51,63",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "BA",
+    "n": "13456",
+    "nm": "ROWENNA DOS SANTOS BRITO",
+    "nmu": "ROWENNA",
+    "sg": "PT",
+    "vap": 72558,
+    "pvap": "1,80",
+    "e": "n",
+    "pst": "51,63",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "BA",
+    "n": "55670",
+    "nm": "ANDREA RODRIGUES SIMAS CASTRO",
+    "nmu": "ANDREA CASTRO",
+    "sg": "PSD",
+    "vap": 59987,
+    "pvap": "1,49",
+    "e": "n",
+    "pst": "51,63",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Governador",
+    "uf": "CE",
+    "n": "13",
+    "nm": "ELMANO DE FREITAS DA COSTA",
+    "nmu": "ELMANO DE FREITAS",
+    "sg": "PT",
+    "vap": 1433645,
+    "pvap": "51,51",
+    "e": "n",
+    "pst": "52,26",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200",
+    "top2": {
+      "cargo": "Governador",
+      "uf": "CE",
+      "n": "45",
+      "nm": "CIRO FERREIRA GOMES",
+      "nmu": "CIRO GOMES",
+      "sg": "PSDB",
+      "vap": 1331299,
+      "pvap": "47,83",
+      "e": "n",
+      "pst": "52,26"
+    }
+  },
+  {
+    "cargo": "Senador",
+    "uf": "CE",
+    "n": "400",
+    "nm": "CID FERREIRA GOMES",
+    "nmu": "CID GOMES",
+    "sg": "PSB",
+    "vap": 1525038,
+    "pvap": "30,34",
+    "e": "n",
+    "pst": "52,31",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Senador",
+    "uf": "CE",
+    "n": "180",
+    "nm": "LUIZIANNE DE OLIVEIRA LINS",
+    "nmu": "LUIZIANNE",
+    "sg": "REDE",
+    "vap": 1423881,
+    "pvap": "28,33",
+    "e": "n",
+    "pst": "52,31",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "CE",
+    "n": "2222",
+    "nm": "ANDRE FERNANDES DE MOURA",
+    "nmu": "ANDRÉ FERNANDES",
+    "sg": "PL",
+    "vap": 384600,
+    "pvap": "13,61",
+    "e": "n",
+    "pst": "52,26",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "CE",
+    "n": "1515",
+    "nm": "YURY BRUNO ALENCAR ARAUJO",
+    "nmu": "YURY DO PAREDÃO",
+    "sg": "MDB",
+    "vap": 133296,
+    "pvap": "4,72",
+    "e": "n",
+    "pst": "52,26",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "CE",
+    "n": "4077",
+    "nm": "TAINAH GOMES MARINHO ALDIGUERI ARRUDA",
+    "nmu": "TAINAH MARINHO",
+    "sg": "PSB",
+    "vap": 110798,
+    "pvap": "3,92",
+    "e": "n",
+    "pst": "52,26",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "CE",
+    "n": "2555",
+    "nm": "GIORDANNA SILVA BRAGA MANO",
+    "nmu": "GIORDANNA MANO",
+    "sg": "PRD",
+    "vap": 108963,
+    "pvap": "3,86",
+    "e": "n",
+    "pst": "52,26",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "CE",
+    "n": "50555",
+    "nm": "GABRIEL LIMA DE AGUIAR",
+    "nmu": "GABRIEL BIOLOGIA",
+    "sg": "PSOL",
+    "vap": 96831,
+    "pvap": "3,47",
+    "e": "n",
+    "pst": "52,26",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "CE",
+    "n": "22022",
+    "nm": "ISABELLA ANTONNIA CASALE ROCHA CARNEIRO LEÃO",
+    "nmu": "BELLA CARMELO",
+    "sg": "PL",
+    "vap": 82878,
+    "pvap": "2,97",
+    "e": "n",
+    "pst": "52,26",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "CE",
+    "n": "22222",
+    "nm": "TANCREDO DOS SANTOS MOREIRA",
+    "nmu": "TANCREDO DOS SANTOS",
+    "sg": "PL",
+    "vap": 81498,
+    "pvap": "2,92",
+    "e": "n",
+    "pst": "52,26",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "CE",
+    "n": "22221",
+    "nm": "FRANCISCO GONÇALVES ABREU JUNIOR",
+    "nmu": "ABREU JUNIOR",
+    "sg": "PL",
+    "vap": 68264,
+    "pvap": "2,45",
+    "e": "n",
+    "pst": "52,26",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Governador",
+    "uf": "DF",
+    "n": "11",
+    "nm": "CELINA LEAO HIZIM FERREIRA",
+    "nmu": "CELINA LEÃO",
+    "sg": "PP",
+    "vap": 815460,
+    "pvap": "49,88",
+    "e": "n",
+    "pst": "99,01",
+    "status": "2º Turno (CELINA LEÃO vs LEANDRO GRASS)",
+    "badgeColor": "bg-amber-100 text-amber-800 border-amber-300",
+    "top2": {
+      "cargo": "Governador",
+      "uf": "DF",
+      "n": "13",
+      "nm": "LEANDRO ANTÔNIO GRASS PEIXOTO",
+      "nmu": "LEANDRO GRASS",
+      "sg": "PT",
+      "vap": 564276,
+      "pvap": "34,51",
+      "e": "n",
+      "pst": "99,01"
+    }
+  },
+  {
+    "cargo": "Senador",
+    "uf": "DF",
+    "n": "222",
+    "nm": "MICHELLE DE PAULA FIRMO REINALDO BOLSONARO",
+    "nmu": "MICHELLE BOLSONARO",
+    "sg": "PL",
+    "vap": 927192,
+    "pvap": "29,02",
+    "e": "n",
+    "pst": "99,01",
+    "status": "Eleito (1ª Vaga)",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Senador",
+    "uf": "DF",
+    "n": "223",
+    "nm": "BEATRIZ KICIS TORRENTS DE SORDI",
+    "nmu": "BIA KICIS",
+    "sg": "PL",
+    "vap": 876180,
+    "pvap": "27,42",
+    "e": "n",
+    "pst": "99,01",
+    "status": "Eleito (2ª Vaga)",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "DF",
+    "n": "5050",
+    "nm": "FÁBIO FELIX SILVEIRA",
+    "nmu": "FÁBIO FELIX",
+    "sg": "PSOL",
+    "vap": 222181,
+    "pvap": "13,44",
+    "e": "n",
+    "pst": "99,01",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "DF",
+    "n": "1515",
+    "nm": "RAFAEL CAVALCANTI PRUDENTE",
+    "nmu": "RAFAEL PRUDENTE",
+    "sg": "MDB",
+    "vap": 117497,
+    "pvap": "7,11",
+    "e": "n",
+    "pst": "99,01",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "DF",
+    "n": "2222",
+    "nm": "JOAO ALBERTO FRAGA SILVA",
+    "nmu": "ALBERTO FRAGA",
+    "sg": "PL",
+    "vap": 117337,
+    "pvap": "7,10",
+    "e": "n",
+    "pst": "99,01",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "DF",
+    "n": "2233",
+    "nm": "THIAGO DE ARAUJO MACIEIRA MANZONI",
+    "nmu": "THIAGO MANZONI",
+    "sg": "PL",
+    "vap": 89676,
+    "pvap": "5,42",
+    "e": "n",
+    "pst": "99,01",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Distrital",
+    "uf": "DF",
+    "n": "50100",
+    "nm": "MAX MACIEL CAVALCANTI",
+    "nmu": "MAX MACIEL",
+    "sg": "PSOL",
+    "vap": 91288,
+    "pvap": "5,43",
+    "e": "n",
+    "pst": "99,01",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Distrital",
+    "uf": "DF",
+    "n": "44000",
+    "nm": "EDUARDO WEYNE PEDROSA",
+    "nmu": "EDUARDO PEDROSA",
+    "sg": "UNIÃO",
+    "vap": 50118,
+    "pvap": "2,98",
+    "e": "n",
+    "pst": "99,01",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Distrital",
+    "uf": "DF",
+    "n": "13100",
+    "nm": "FRANCISCO DOMINGOS DOS SANTOS",
+    "nmu": "CHICO VIGILANTE",
+    "sg": "PT",
+    "vap": 49513,
+    "pvap": "2,95",
+    "e": "n",
+    "pst": "99,01",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Distrital",
+    "uf": "DF",
+    "n": "22000",
+    "nm": "JOAQUIM DOMINGOS RORIZ NETO",
+    "nmu": "JOAQUIM RORIZ NETO",
+    "sg": "PL",
+    "vap": 45158,
+    "pvap": "2,69",
+    "e": "n",
+    "pst": "99,01",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Governador",
+    "uf": "ES",
+    "n": "10",
+    "nm": "LORENZO SILVA DE PAZOLINI",
+    "nmu": "LORENZO PAZOLINI",
+    "sg": "REPUBLICANOS",
+    "vap": 1011003,
+    "pvap": "49,78",
+    "e": "n",
+    "pst": "96,58",
+    "status": "2º Turno (LORENZO PAZOLINI vs RICARDO FERRAÇO)",
+    "badgeColor": "bg-amber-100 text-amber-800 border-amber-300",
+    "top2": {
+      "cargo": "Governador",
+      "uf": "ES",
+      "n": "15",
+      "nm": "RICARDO DE REZENDE FERRAÇO",
+      "nmu": "RICARDO FERRAÇO",
+      "sg": "MDB",
+      "vap": 692199,
+      "pvap": "34,08",
+      "e": "n",
+      "pst": "96,58"
+    }
+  },
+  {
+    "cargo": "Senador",
+    "uf": "ES",
+    "n": "400",
+    "nm": "JOSÉ RENATO CASAGRANDE",
+    "nmu": "RENATO CASAGRANDE",
+    "sg": "PSB",
+    "vap": 954247,
+    "pvap": "24,61",
+    "e": "n",
+    "pst": "96,58",
+    "status": "Eleito (1ª Vaga)",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Senador",
+    "uf": "ES",
+    "n": "100",
+    "nm": "EVAIR VIEIRA DE MELO",
+    "nmu": "EVAIR DE MELO",
+    "sg": "REPUBLICANOS",
+    "vap": 951147,
+    "pvap": "24,53",
+    "e": "n",
+    "pst": "96,58",
+    "status": "Eleito (2ª Vaga)",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "ES",
+    "n": "2212",
+    "nm": "LUCAS DA RE POLESE",
+    "nmu": "LUCAS POLESE",
+    "sg": "PL",
+    "vap": 406270,
+    "pvap": "19,79",
+    "e": "n",
+    "pst": "96,58",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "ES",
+    "n": "1300",
+    "nm": "JACKELINE OLIVEIRA ROCHA",
+    "nmu": "JACK ROCHA",
+    "sg": "PT",
+    "vap": 135678,
+    "pvap": "6,61",
+    "e": "n",
+    "pst": "96,58",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "ES",
+    "n": "4400",
+    "nm": "BRUNO DA COSTA RESENDE",
+    "nmu": "DR. BRUNO RESENDE",
+    "sg": "UNIÃO",
+    "vap": 108471,
+    "pvap": "5,28",
+    "e": "n",
+    "pst": "96,58",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "ES",
+    "n": "2000",
+    "nm": "GILSON DANIEL BATISTA",
+    "nmu": "GILSON DANIEL",
+    "sg": "PODE",
+    "vap": 105219,
+    "pvap": "5,12",
+    "e": "n",
+    "pst": "96,58",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "ES",
+    "n": "50180",
+    "nm": "CAMILA COSTA VALADÃO",
+    "nmu": "CAMILA VALADÃO",
+    "sg": "PSOL",
+    "vap": 59576,
+    "pvap": "2,87",
+    "e": "n",
+    "pst": "96,58",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "ES",
+    "n": "22190",
+    "nm": "LUCINIO CASTELO DE ASSUMÇAO",
+    "nmu": "CAPITAO ASSUMÇAO",
+    "sg": "PL",
+    "vap": 57790,
+    "pvap": "2,79",
+    "e": "n",
+    "pst": "96,58",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "ES",
+    "n": "13013",
+    "nm": "KARLA SILVA COSER",
+    "nmu": "KARLA COSER",
+    "sg": "PT",
+    "vap": 49414,
+    "pvap": "2,38",
+    "e": "n",
+    "pst": "96,58",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "ES",
+    "n": "22122",
+    "nm": "EVANDRO DE SOUZA FERREIRA BRAGA",
+    "nmu": "PASTOR DINHO SOUZA",
+    "sg": "PL",
+    "vap": 48839,
+    "pvap": "2,36",
+    "e": "n",
+    "pst": "96,58",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Governador",
+    "uf": "GO",
+    "n": "15",
+    "nm": "DANIEL ELIAS CARVALHO VILELA",
+    "nmu": "DANIEL VILELA",
+    "sg": "MDB",
+    "vap": 1768615,
+    "pvap": "58,74",
+    "e": "n",
+    "pst": "83,27",
+    "status": "Eleito (1º Turno)",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300",
+    "top2": {
+      "cargo": "Governador",
+      "uf": "GO",
+      "n": "22",
+      "nm": "WILDER PEDRO DE MORAIS",
+      "nmu": "WILDER MORAIS",
+      "sg": "PL",
+      "vap": 673891,
+      "pvap": "22,38",
+      "e": "n",
+      "pst": "83,27"
+    }
+  },
+  {
+    "cargo": "Senador",
+    "uf": "GO",
+    "n": "222",
+    "nm": "GUSTAVO GAYER MACHADO DE ARAUJO",
+    "nmu": "GUSTAVO GAYER",
+    "sg": "PL",
+    "vap": 1385424,
+    "pvap": "24,98",
+    "e": "n",
+    "pst": "83,27",
+    "status": "Eleito (1ª Vaga)",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Senador",
+    "uf": "GO",
+    "n": "444",
+    "nm": "MARIA DAS GRAÇAS LANDIM DE CARVALHO CAIADO",
+    "nmu": "GRACINHA CAIADO",
+    "sg": "UNIÃO",
+    "vap": 1188007,
+    "pvap": "21,42",
+    "e": "n",
+    "pst": "83,27",
+    "status": "Eleito (2ª Vaga)",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "GO",
+    "n": "4455",
+    "nm": "BRUNNO REGIANY PEIXOTO PIMENTA",
+    "nmu": "BRUNO PEIXOTO",
+    "sg": "UNIÃO",
+    "vap": 169964,
+    "pvap": "5,69",
+    "e": "n",
+    "pst": "83,27",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "GO",
+    "n": "1331",
+    "nm": "ADRIANA SAUTHIER ACCORSI",
+    "nmu": "DELEGADA ADRIANA ACCORSI",
+    "sg": "PT",
+    "vap": 152061,
+    "pvap": "5,09",
+    "e": "n",
+    "pst": "83,27",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "GO",
+    "n": "2220",
+    "nm": "FREDERICO GUSTAVO RODRIGUES CUNHA",
+    "nmu": "FRED RODRIGUES",
+    "sg": "PL",
+    "vap": 135556,
+    "pvap": "4,54",
+    "e": "n",
+    "pst": "83,27",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "GO",
+    "n": "5544",
+    "nm": "LUCAS MARTINS DO VALE",
+    "nmu": "LUCAS DO VALE",
+    "sg": "PSD",
+    "vap": 113044,
+    "pvap": "3,78",
+    "e": "n",
+    "pst": "83,27",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "GO",
+    "n": "15100",
+    "nm": "ANA CAROLINE GUIMARÃES DE OLIVEIRA FARIA",
+    "nmu": "CAROL DO AMILTINHO",
+    "sg": "MDB",
+    "vap": 100790,
+    "pvap": "3,35",
+    "e": "n",
+    "pst": "83,27",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "GO",
+    "n": "13000",
+    "nm": "FABRICIO SILVA ROSA",
+    "nmu": "FABRICIO ROSA",
+    "sg": "PT",
+    "vap": 72347,
+    "pvap": "2,40",
+    "e": "n",
+    "pst": "83,27",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "GO",
+    "n": "55244",
+    "nm": "PAULO FARIA DO VALE",
+    "nmu": "PAULO DO VALE",
+    "sg": "PSD",
+    "vap": 66183,
+    "pvap": "2,20",
+    "e": "n",
+    "pst": "83,27",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "GO",
+    "n": "22000",
+    "nm": "AMAURI RIBEIRO",
+    "nmu": "AMAURI RIBEIRO",
+    "sg": "PL",
+    "vap": 59195,
+    "pvap": "1,97",
+    "e": "n",
+    "pst": "83,27",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Governador",
+    "uf": "MA",
+    "n": "55",
+    "nm": "EDUARDO SALIM BRAIDE",
+    "nmu": "EDUARDO BRAIDE",
+    "sg": "PSD",
+    "vap": 1331167,
+    "pvap": "55,22",
+    "e": "n",
+    "pst": "63,81",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200",
+    "top2": {
+      "cargo": "Governador",
+      "uf": "MA",
+      "n": "15",
+      "nm": "CARLOS ORLEANS BRAIDE BRANDÃO",
+      "nmu": "ORLEANS BRANDÃO",
+      "sg": "MDB",
+      "vap": 810892,
+      "pvap": "33,64",
+      "e": "n",
+      "pst": "63,81"
+    }
+  },
+  {
+    "cargo": "Senador",
+    "uf": "MA",
+    "n": "111",
+    "nm": "ANDRE LUIZ CARVALHO RIBEIRO",
+    "nmu": "FUFUCA",
+    "sg": "PP",
+    "vap": 957125,
+    "pvap": "21,63",
+    "e": "n",
+    "pst": "63,81",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Senador",
+    "uf": "MA",
+    "n": "300",
+    "nm": "LAHESIO RODRIGUES DO BONFIM",
+    "nmu": "LAHESIO BONFIM",
+    "sg": "NOVO",
+    "vap": 946623,
+    "pvap": "21,39",
+    "e": "n",
+    "pst": "63,81",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "MA",
+    "n": "4444",
+    "nm": "PEDRO LUCAS ANDRADE FERNANDES RIBEIRO",
+    "nmu": "PEDRO LUCAS FERNANDES",
+    "sg": "UNIÃO",
+    "vap": 124676,
+    "pvap": "5,09",
+    "e": "n",
+    "pst": "63,81",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "MA",
+    "n": "2222",
+    "nm": "FABIANA VILAR RODRIGUES",
+    "nmu": "FABIANA VILAR",
+    "sg": "PL",
+    "vap": 100038,
+    "pvap": "4,08",
+    "e": "n",
+    "pst": "63,81",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "MA",
+    "n": "1533",
+    "nm": "VINICIUS CESAR FERRO CASTRO",
+    "nmu": "VINICIUS FERRO",
+    "sg": "MDB",
+    "vap": 96181,
+    "pvap": "3,92",
+    "e": "n",
+    "pst": "63,81",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "MA",
+    "n": "7070",
+    "nm": "HILDELIS SILVA DUARTE JUNIOR",
+    "nmu": "DUARTE JR",
+    "sg": "AVANTE",
+    "vap": 95362,
+    "pvap": "3,89",
+    "e": "n",
+    "pst": "63,81",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "MA",
+    "n": "44444",
+    "nm": "PAULO CASE ANDRADE FERNANDES RIBEIRO",
+    "nmu": "PAULO CASÉ FERNANDES",
+    "sg": "UNIÃO",
+    "vap": 62223,
+    "pvap": "2,57",
+    "e": "n",
+    "pst": "63,81",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "MA",
+    "n": "55555",
+    "nm": "DOUGLAS PINTO DOS SANTOS",
+    "nmu": "DOUGLAS PINTO",
+    "sg": "PSD",
+    "vap": 61819,
+    "pvap": "2,55",
+    "e": "n",
+    "pst": "63,81",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "MA",
+    "n": "15700",
+    "nm": "GLEYDSON RESENDE DA SILVA",
+    "nmu": "GLEYDSON",
+    "sg": "MDB",
+    "vap": 59524,
+    "pvap": "2,46",
+    "e": "n",
+    "pst": "63,81",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "MA",
+    "n": "13333",
+    "nm": "CRICIELLE AGUIAR MUNIZ",
+    "nmu": "CRICIELLE",
+    "sg": "PT",
+    "vap": 56829,
+    "pvap": "2,35",
+    "e": "n",
+    "pst": "63,81",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Governador",
+    "uf": "MT",
+    "n": "10",
+    "nm": "OTAVIANO OLAVO PIVETTA",
+    "nmu": "OTAVIANO PIVETTA",
+    "sg": "REPUBLICANOS",
+    "vap": 1017181,
+    "pvap": "60,99",
+    "e": "n",
+    "pst": "89,95",
+    "status": "Eleito (1º Turno)",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300",
+    "top2": {
+      "cargo": "Governador",
+      "uf": "MT",
+      "n": "22",
+      "nm": "WELLINGTON ANTONIO FAGUNDES",
+      "nmu": "WELLINGTON FAGUNDES",
+      "sg": "PL",
+      "vap": 384431,
+      "pvap": "23,05",
+      "e": "n",
+      "pst": "89,95"
+    }
+  },
+  {
+    "cargo": "Senador",
+    "uf": "MT",
+    "n": "444",
+    "nm": "MAURO MENDES FERREIRA",
+    "nmu": "MAURO MENDES",
+    "sg": "UNIÃO",
+    "vap": 1069066,
+    "pvap": "33,30",
+    "e": "n",
+    "pst": "89,95",
+    "status": "Eleito (1ª Vaga)",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Senador",
+    "uf": "MT",
+    "n": "222",
+    "nm": "JOSE ANTONIO DOS SANTOS MEDEIROS",
+    "nmu": "ZÉ MEDEIROS",
+    "sg": "PL",
+    "vap": 884985,
+    "pvap": "27,56",
+    "e": "n",
+    "pst": "89,95",
+    "status": "Eleito (2ª Vaga)",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "MT",
+    "n": "2222",
+    "nm": "RUBIA FERNANDA DINIZ ROBSON SANTOS DE SIQUEIRA",
+    "nmu": "CORONEL FERNANDA",
+    "sg": "PL",
+    "vap": 187306,
+    "pvap": "10,97",
+    "e": "n",
+    "pst": "89,95",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "MT",
+    "n": "1313",
+    "nm": "ROSA NEIDE SANDES DE ALMEIDA",
+    "nmu": "PROFESSORA ROSA NEIDE",
+    "sg": "PT",
+    "vap": 124717,
+    "pvap": "7,30",
+    "e": "n",
+    "pst": "89,95",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "MT",
+    "n": "4400",
+    "nm": "FABIO PAULINO GARCIA",
+    "nmu": "FÁBIO GARCIA",
+    "sg": "UNIÃO",
+    "vap": 122337,
+    "pvap": "7,16",
+    "e": "n",
+    "pst": "89,95",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "MT",
+    "n": "2244",
+    "nm": "JONILDO JOSÉ DE ASSIS",
+    "nmu": "CORONEL ASSIS",
+    "sg": "PL",
+    "vap": 116544,
+    "pvap": "6,83",
+    "e": "n",
+    "pst": "89,95",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "MT",
+    "n": "13130",
+    "nm": "LUDIO FRANK MENDES CABRAL",
+    "nmu": "LÚDIO CABRAL",
+    "sg": "PT",
+    "vap": 80761,
+    "pvap": "4,67",
+    "e": "n",
+    "pst": "89,95",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "MT",
+    "n": "20000",
+    "nm": "MAX JOEL RUSSI",
+    "nmu": "MAX RUSSI",
+    "sg": "PODE",
+    "vap": 79028,
+    "pvap": "4,57",
+    "e": "n",
+    "pst": "89,95",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "MT",
+    "n": "22222",
+    "nm": "GILBERTO MOACIR CATTANI",
+    "nmu": "GILBERTO CATTANI",
+    "sg": "PL",
+    "vap": 65597,
+    "pvap": "3,79",
+    "e": "n",
+    "pst": "89,95",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "MT",
+    "n": "22300",
+    "nm": "SAMANTHA IRIS BELARMINO CRISTOVAO BRUNINI MOUMER",
+    "nmu": "SAMANTHA DO ABILIO",
+    "sg": "PL",
+    "vap": 55187,
+    "pvap": "3,19",
+    "e": "n",
+    "pst": "89,95",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Governador",
+    "uf": "MS",
+    "n": "11",
+    "nm": "EDUARDO CORREA RIEDEL",
+    "nmu": "EDUARDO RIEDEL",
+    "sg": "PP",
+    "vap": 896773,
+    "pvap": "67,37",
+    "e": "n",
+    "pst": "97,55",
+    "status": "Eleito (1º Turno)",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300",
+    "top2": {
+      "cargo": "Governador",
+      "uf": "MS",
+      "n": "13",
+      "nm": "FABIO RICARDO TRAD",
+      "nmu": "FÁBIO TRAD",
+      "sg": "PT",
+      "vap": 310208,
+      "pvap": "23,30",
+      "e": "n",
+      "pst": "97,55"
+    }
+  },
+  {
+    "cargo": "Senador",
+    "uf": "MS",
+    "n": "222",
+    "nm": "REINALDO AZAMBUJA SILVA",
+    "nmu": "REINALDO AZAMBUJA",
+    "sg": "PL",
+    "vap": 885499,
+    "pvap": "34,76",
+    "e": "n",
+    "pst": "97,55",
+    "status": "Eleito (1ª Vaga)",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Senador",
+    "uf": "MS",
+    "n": "221",
+    "nm": "RENAN BARBOSA CONTAR",
+    "nmu": "CAPITÃO CONTAR",
+    "sg": "PL",
+    "vap": 843787,
+    "pvap": "33,12",
+    "e": "n",
+    "pst": "97,55",
+    "status": "Eleito (2ª Vaga)",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "MS",
+    "n": "1367",
+    "nm": "CAMILA BAZACHI JARA MARZOCHI",
+    "nmu": "CAMILA JARA",
+    "sg": "PT",
+    "vap": 150364,
+    "pvap": "10,84",
+    "e": "n",
+    "pst": "97,55",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "MS",
+    "n": "2222",
+    "nm": "MARCOS SBOROWSKI POLLON",
+    "nmu": "MARCOS POLLON",
+    "sg": "PL",
+    "vap": 138598,
+    "pvap": "9,99",
+    "e": "n",
+    "pst": "97,55",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "MS",
+    "n": "4444",
+    "nm": "ROSIANE MODESTO DE OLIVEIRA",
+    "nmu": "ROSE MODESTO",
+    "sg": "UNIÃO",
+    "vap": 121969,
+    "pvap": "8,79",
+    "e": "n",
+    "pst": "97,55",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "MS",
+    "n": "2200",
+    "nm": "MARA ELISA NAVACCHI CASEIRO",
+    "nmu": "MARA CASEIRO",
+    "sg": "PL",
+    "vap": 115705,
+    "pvap": "8,34",
+    "e": "n",
+    "pst": "97,55",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "MS",
+    "n": "22121",
+    "nm": "JOSÉ ROBERTO TEIXEIRA",
+    "nmu": "ZÉ TEIXEIRA",
+    "sg": "PL",
+    "vap": 52539,
+    "pvap": "3,80",
+    "e": "n",
+    "pst": "97,55",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "MS",
+    "n": "22222",
+    "nm": "PAULO JOSE ARAUJO CORREA",
+    "nmu": "PAULO CORRÊA",
+    "sg": "PL",
+    "vap": 43474,
+    "pvap": "3,14",
+    "e": "n",
+    "pst": "97,55",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "MS",
+    "n": "45045",
+    "nm": "PEDRO ARLEI CARAVINA",
+    "nmu": "CARAVINA",
+    "sg": "PSDB",
+    "vap": 41284,
+    "pvap": "2,98",
+    "e": "n",
+    "pst": "97,55",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "MS",
+    "n": "22800",
+    "nm": "CARLOS ALBERTO DAVID DOS SANTOS",
+    "nmu": "CORONEL DAVID",
+    "sg": "PL",
+    "vap": 41069,
+    "pvap": "2,97",
+    "e": "n",
+    "pst": "97,55",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Governador",
+    "uf": "MG",
+    "n": "10",
+    "nm": "CLEITON GONTIJO DE AZEVEDO",
+    "nmu": "CLEITINHO AZEVEDO",
+    "sg": "REPUBLICANOS",
+    "vap": 3972826,
+    "pvap": "54,32",
+    "e": "n",
+    "pst": "64,03",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200",
+    "top2": {
+      "cargo": "Governador",
+      "uf": "MG",
+      "n": "13",
+      "nm": "PATRUS ANANIAS DE SOUSA",
+      "nmu": "PATRUS ANANIAS",
+      "sg": "PT",
+      "vap": 1928226,
+      "pvap": "26,36",
+      "e": "n",
+      "pst": "64,03"
+    }
+  },
+  {
+    "cargo": "Senador",
+    "uf": "MG",
+    "n": "222",
+    "nm": "DOMINGOS SAVIO CAMPOS RESENDE",
+    "nmu": "DOMINGOS SÁVIO",
+    "sg": "PL",
+    "vap": 3217057,
+    "pvap": "24,73",
+    "e": "n",
+    "pst": "62,95",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Senador",
+    "uf": "MG",
+    "n": "131",
+    "nm": "MARILIA APARECIDA CAMPOS",
+    "nmu": "MARÍLIA CAMPOS",
+    "sg": "PT",
+    "vap": 2527574,
+    "pvap": "19,43",
+    "e": "n",
+    "pst": "62,95",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "MG",
+    "n": "2222",
+    "nm": "NIKOLAS FERREIRA DE OLIVEIRA",
+    "nmu": "NIKOLAS FERREIRA",
+    "sg": "PL",
+    "vap": 2045024,
+    "pvap": "28,79",
+    "e": "n",
+    "pst": "61,95",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "MG",
+    "n": "1331",
+    "nm": "ANA ELISA SANTOS SILVA",
+    "nmu": "ANA ELISA",
+    "sg": "PT",
+    "vap": 353846,
+    "pvap": "4,98",
+    "e": "n",
+    "pst": "61,95",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "MG",
+    "n": "5050",
+    "nm": "DUDA SALABERT",
+    "nmu": "DUDA SALABERT",
+    "sg": "PSOL",
+    "vap": 180052,
+    "pvap": "2,53",
+    "e": "n",
+    "pst": "61,95",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "MG",
+    "n": "1313",
+    "nm": "ROGERIO CORREIA DE MOURA BAPTISTA",
+    "nmu": "ROGÉRIO CORREIA",
+    "sg": "PT",
+    "vap": 126520,
+    "pvap": "1,78",
+    "e": "n",
+    "pst": "61,95",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "MG",
+    "n": "22222",
+    "nm": "BRUNO DE CASTRO ENGLER FLORENCIO DE ALMEIDA",
+    "nmu": "BRUNO ENGLER",
+    "sg": "PL",
+    "vap": 464936,
+    "pvap": "6,93",
+    "e": "n",
+    "pst": "59,37",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "MG",
+    "n": "13123",
+    "nm": "BEATRIZ DA SILVA CERQUEIRA",
+    "nmu": "BEATRIZ CERQUEIRA",
+    "sg": "PT",
+    "vap": 216735,
+    "pvap": "3,23",
+    "e": "n",
+    "pst": "59,37",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "MG",
+    "n": "22111",
+    "nm": "PHABLO GOMES ALMEIDA",
+    "nmu": "PABLO ALMEIDA",
+    "sg": "PL",
+    "vap": 165643,
+    "pvap": "2,47",
+    "e": "n",
+    "pst": "59,37",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "MG",
+    "n": "13130",
+    "nm": "MACAE MARIA EVARISTO DOS SANTOS",
+    "nmu": "MACAÉ EVARISTO",
+    "sg": "PT",
+    "vap": 113449,
+    "pvap": "1,69",
+    "e": "n",
+    "pst": "59,37",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Governador",
+    "uf": "PA",
+    "n": "20",
+    "nm": "DANIEL BARBOSA SANTOS",
+    "nmu": "DR. DANIEL",
+    "sg": "PODE",
+    "vap": 1749792,
+    "pvap": "52,60",
+    "e": "n",
+    "pst": "73,28",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200",
+    "top2": {
+      "cargo": "Governador",
+      "uf": "PA",
+      "n": "15",
+      "nm": "HANA GHASSAN TUMA",
+      "nmu": "HANA GHASSAN",
+      "sg": "MDB",
+      "vap": 1493910,
+      "pvap": "44,91",
+      "e": "n",
+      "pst": "73,28"
+    }
+  },
+  {
+    "cargo": "Senador",
+    "uf": "PA",
+    "n": "151",
+    "nm": "HELDER ZAHLUTH BARBALHO",
+    "nmu": "HELDER",
+    "sg": "MDB",
+    "vap": 1636987,
+    "pvap": "25,17",
+    "e": "n",
+    "pst": "73,28",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Senador",
+    "uf": "PA",
+    "n": "222",
+    "nm": "EDER MAURO CARDOSO BARRA",
+    "nmu": "DELEGADO ÉDER MAURO",
+    "sg": "PL",
+    "vap": 1503475,
+    "pvap": "23,11",
+    "e": "n",
+    "pst": "73,28",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "PA",
+    "n": "2200",
+    "nm": "LENILDO MENDES DOS SANTOS SERTAO",
+    "nmu": "DELEGADO CAVEIRA",
+    "sg": "PL",
+    "vap": 317313,
+    "pvap": "9,08",
+    "e": "n",
+    "pst": "73,28",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "PA",
+    "n": "1515",
+    "nm": "JADER FONTENELLE BARBALHO FILHO",
+    "nmu": "JADER FILHO",
+    "sg": "MDB",
+    "vap": 231836,
+    "pvap": "6,63",
+    "e": "n",
+    "pst": "73,28",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "PA",
+    "n": "2020",
+    "nm": "ALESSANDRA HABER CARVALHO SANTOS",
+    "nmu": "DRA. ALESSANDRA HABER",
+    "sg": "PODE",
+    "vap": 217302,
+    "pvap": "6,22",
+    "e": "n",
+    "pst": "73,28",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "PA",
+    "n": "5588",
+    "nm": "JOAO FERRARI JUNIOR",
+    "nmu": "JÚNIOR FERRARI",
+    "sg": "PSD",
+    "vap": 134468,
+    "pvap": "3,85",
+    "e": "n",
+    "pst": "73,28",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "PA",
+    "n": "15100",
+    "nm": "WENDERSON AZEVEDO CHAMON",
+    "nmu": "CHAMONZINHO",
+    "sg": "MDB",
+    "vap": 78331,
+    "pvap": "2,24",
+    "e": "n",
+    "pst": "73,28",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "PA",
+    "n": "15999",
+    "nm": "SIPRIANO FERRAZ SANTOS JUNIOR",
+    "nmu": "DR SIPRIANO FERRAZ",
+    "sg": "MDB",
+    "vap": 76698,
+    "pvap": "2,20",
+    "e": "n",
+    "pst": "73,28",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "PA",
+    "n": "55123",
+    "nm": "GUSTAVO BEMERGUY SEFER",
+    "nmu": "GUSTAVO SEFER",
+    "sg": "PSD",
+    "vap": 72771,
+    "pvap": "2,08",
+    "e": "n",
+    "pst": "73,28",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "PA",
+    "n": "22022",
+    "nm": "LANUZIA LOBO COSTA",
+    "nmu": "LANUZIA CUNHA",
+    "sg": "PL",
+    "vap": 67548,
+    "pvap": "1,94",
+    "e": "n",
+    "pst": "73,28",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Governador",
+    "uf": "PB",
+    "n": "11",
+    "nm": "LUCAS RIBEIRO NOVAIS DE ARAUJO",
+    "nmu": "LUCAS RIBEIRO",
+    "sg": "PP",
+    "vap": 1380568,
+    "pvap": "64,42",
+    "e": "n",
+    "pst": "94,13",
+    "status": "Eleito (1º Turno)",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300",
+    "top2": {
+      "cargo": "Governador",
+      "uf": "PB",
+      "n": "22",
+      "nm": "EFRAIM DE ARAUJO MORAIS FILHO",
+      "nmu": "EFRAIM FILHO",
+      "sg": "PL",
+      "vap": 518722,
+      "pvap": "24,20",
+      "e": "n",
+      "pst": "94,13"
+    }
+  },
+  {
+    "cargo": "Senador",
+    "uf": "PB",
+    "n": "400",
+    "nm": "JOÃO AZEVÊDO LINS FILHO",
+    "nmu": "JOAO AZEVÊDO",
+    "sg": "PSB",
+    "vap": 1310500,
+    "pvap": "32,65",
+    "e": "n",
+    "pst": "94,13",
+    "status": "Eleito (1ª Vaga)",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Senador",
+    "uf": "PB",
+    "n": "155",
+    "nm": "VENEZIANO VITAL DO RÊGO SEGUNDO NETO",
+    "nmu": "VENEZIANO",
+    "sg": "MDB",
+    "vap": 909228,
+    "pvap": "22,65",
+    "e": "n",
+    "pst": "94,13",
+    "status": "Eleito (2ª Vaga)",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "PB",
+    "n": "2222",
+    "nm": "GILBERTO GOMES DA SILVA",
+    "nmu": "CABO GILBERTO SILVA",
+    "sg": "PL",
+    "vap": 253067,
+    "pvap": "11,24",
+    "e": "n",
+    "pst": "94,13",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "PB",
+    "n": "1111",
+    "nm": "AGUINALDO VELLOSO BORGES RIBEIRO",
+    "nmu": "AGUINALDO RIBEIRO",
+    "sg": "PP",
+    "vap": 168075,
+    "pvap": "7,47",
+    "e": "n",
+    "pst": "94,13",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "PB",
+    "n": "1313",
+    "nm": "RICARDO VIEIRA COUTINHO",
+    "nmu": "RICARDO COUTINHO",
+    "sg": "PT",
+    "vap": 154399,
+    "pvap": "6,86",
+    "e": "n",
+    "pst": "94,13",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "PB",
+    "n": "1044",
+    "nm": "CÁSSIO MURILLO GALDINO DE ARAÚJO",
+    "nmu": "MURILO GALDINO",
+    "sg": "REPUBLICANOS",
+    "vap": 138460,
+    "pvap": "6,15",
+    "e": "n",
+    "pst": "94,13",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "PB",
+    "n": "10444",
+    "nm": "ADRIANO CEZAR GALDINO DE ARAUJO",
+    "nmu": "ADRIANO GALDINO",
+    "sg": "REPUBLICANOS",
+    "vap": 73220,
+    "pvap": "3,23",
+    "e": "n",
+    "pst": "94,13",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "PB",
+    "n": "22222",
+    "nm": "NILVAN FERREIRA DO NASCIMENTO",
+    "nmu": "NILVAN FERREIRA",
+    "sg": "PL",
+    "vap": 72959,
+    "pvap": "3,22",
+    "e": "n",
+    "pst": "94,13",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "PB",
+    "n": "10111",
+    "nm": "OLIVIA MOTTA WANDERLEY DA NÓBREGA",
+    "nmu": "OLÍVIA MOTTA",
+    "sg": "REPUBLICANOS",
+    "vap": 65507,
+    "pvap": "2,89",
+    "e": "n",
+    "pst": "94,13",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "PB",
+    "n": "10110",
+    "nm": "JOSE WILSON SANTIAGO FILHO",
+    "nmu": "WILSON FILHO",
+    "sg": "REPUBLICANOS",
+    "vap": 54607,
+    "pvap": "2,41",
+    "e": "n",
+    "pst": "94,13",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Governador",
+    "uf": "PR",
+    "n": "22",
+    "nm": "SERGIO FERNANDO MORO",
+    "nmu": "SERGIO MORO",
+    "sg": "PL",
+    "vap": 3071648,
+    "pvap": "50,26",
+    "e": "n",
+    "pst": "97,86",
+    "status": "Eleito (1º Turno)",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300",
+    "top2": {
+      "cargo": "Governador",
+      "uf": "PR",
+      "n": "55",
+      "nm": "SANDRO ALEX CRUZ DE OLIVEIRA",
+      "nmu": "SANDRO ALEX",
+      "sg": "PSD",
+      "vap": 1544247,
+      "pvap": "25,27",
+      "e": "n",
+      "pst": "97,86"
+    }
+  },
+  {
+    "cargo": "Senador",
+    "uf": "PR",
+    "n": "222",
+    "nm": "FILIPE BARROS BAPTISTA DE TOLEDO RIBEIRO",
+    "nmu": "FILIPE BARROS",
+    "sg": "PL",
+    "vap": 3092388,
+    "pvap": "27,35",
+    "e": "n",
+    "pst": "97,86",
+    "status": "Eleito (1ª Vaga)",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Senador",
+    "uf": "PR",
+    "n": "300",
+    "nm": "DELTAN MARTINAZZO DALLAGNOL",
+    "nmu": "DELTAN DALLAGNOL",
+    "sg": "NOVO",
+    "vap": 2853500,
+    "pvap": "25,24",
+    "e": "n",
+    "pst": "97,86",
+    "status": "Eleito (2ª Vaga)",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "PR",
+    "n": "3000",
+    "nm": "JEFFREY CHIQUINI DA COSTA",
+    "nmu": "JEFFREY CHIQUINI",
+    "sg": "NOVO",
+    "vap": 418407,
+    "pvap": "6,87",
+    "e": "n",
+    "pst": "97,56",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "PR",
+    "n": "3030",
+    "nm": "GUILHERME FERREIRA KILTER LIRA",
+    "nmu": "GUILHERME KILTER",
+    "sg": "NOVO",
+    "vap": 266411,
+    "pvap": "4,37",
+    "e": "n",
+    "pst": "97,56",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "PR",
+    "n": "2290",
+    "nm": "GILSON CARDOSO FAHUR",
+    "nmu": "SARGENTO FAHUR",
+    "sg": "PL",
+    "vap": 238259,
+    "pvap": "3,91",
+    "e": "n",
+    "pst": "97,56",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "PR",
+    "n": "1313",
+    "nm": "ANA JULIA PIRES RIBEIRO",
+    "nmu": "ANA JÚLIA",
+    "sg": "PT",
+    "vap": 181921,
+    "pvap": "2,98",
+    "e": "n",
+    "pst": "97,56",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "PR",
+    "n": "22922",
+    "nm": "PAULO HENRIQUE RIVERA DE MELO",
+    "nmu": "PAULO MELO",
+    "sg": "PL",
+    "vap": 189695,
+    "pvap": "3,14",
+    "e": "n",
+    "pst": "97,56",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "PR",
+    "n": "22500",
+    "nm": "JESSICA RAMOS MORENO",
+    "nmu": "JESSICÃO",
+    "sg": "PL",
+    "vap": 130722,
+    "pvap": "2,16",
+    "e": "n",
+    "pst": "97,56",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "PR",
+    "n": "13013",
+    "nm": "JOSE RODRIGUES LEMOS",
+    "nmu": "PROF. LEMOS",
+    "sg": "PT",
+    "vap": 117385,
+    "pvap": "1,94",
+    "e": "n",
+    "pst": "97,56",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "PR",
+    "n": "55123",
+    "nm": "MARCIO FERNANDO NUNES",
+    "nmu": "MARCIO NUNES",
+    "sg": "PSD",
+    "vap": 114717,
+    "pvap": "1,90",
+    "e": "n",
+    "pst": "97,56",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Governador",
+    "uf": "PE",
+    "n": "55",
+    "nm": "RAQUEL TEIXEIRA LYRA LUCENA",
+    "nmu": "RAQUEL LYRA",
+    "sg": "PSD",
+    "vap": 1622698,
+    "pvap": "53,04",
+    "e": "n",
+    "pst": "60,18",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200",
+    "top2": {
+      "cargo": "Governador",
+      "uf": "PE",
+      "n": "40",
+      "nm": "JOÃO HENRIQUE DE ANDRADE LIMA CAMPOS",
+      "nmu": "JOÃO CAMPOS",
+      "sg": "PSB",
+      "vap": 1367373,
+      "pvap": "44,70",
+      "e": "n",
+      "pst": "60,18"
+    }
+  },
+  {
+    "cargo": "Senador",
+    "uf": "PE",
+    "n": "130",
+    "nm": "HUMBERTO SERGIO COSTA LIMA",
+    "nmu": "HUMBERTO COSTA",
+    "sg": "PT",
+    "vap": 1450816,
+    "pvap": "26,81",
+    "e": "n",
+    "pst": "60,18",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Senador",
+    "uf": "PE",
+    "n": "123",
+    "nm": "MARÍLIA VALENÇA ROCHA ARRAES DE ALENCAR",
+    "nmu": "MARÍLIA ARRAES",
+    "sg": "PDT",
+    "vap": 1348559,
+    "pvap": "24,92",
+    "e": "n",
+    "pst": "60,18",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "PE",
+    "n": "5050",
+    "nm": "JONES MANOEL DA SILVA",
+    "nmu": "JONES MANOEL",
+    "sg": "PSOL",
+    "vap": 166347,
+    "pvap": "5,47",
+    "e": "n",
+    "pst": "60,18",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "PE",
+    "n": "4040",
+    "nm": "PEDRO HENRIQUE DE ANDRADE LIMA CARNEIRO CAMPOS",
+    "nmu": "PEDRO CAMPOS",
+    "sg": "PSB",
+    "vap": 157684,
+    "pvap": "5,18",
+    "e": "n",
+    "pst": "60,18",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "PE",
+    "n": "4444",
+    "nm": "JULIANA BARBOSA DA SILVA AGUIAR",
+    "nmu": "JULIANA DE CHAPARRAL",
+    "sg": "UNIÃO",
+    "vap": 112532,
+    "pvap": "3,70",
+    "e": "n",
+    "pst": "60,18",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "PE",
+    "n": "2222",
+    "nm": "ANDERSON FERREIRA RODRIGUES",
+    "nmu": "ANDERSON FERREIRA",
+    "sg": "PL",
+    "vap": 112227,
+    "pvap": "3,69",
+    "e": "n",
+    "pst": "60,18",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "PE",
+    "n": "13000",
+    "nm": "DANIELLE GONDIM PORTELA",
+    "nmu": "DANI PORTELA",
+    "sg": "PT",
+    "vap": 100501,
+    "pvap": "3,31",
+    "e": "n",
+    "pst": "60,18",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "PE",
+    "n": "20222",
+    "nm": "GILSON MACHADO GUIMARÃES",
+    "nmu": "GILSON MACHADO FILHO",
+    "sg": "PODE",
+    "vap": 89111,
+    "pvap": "2,93",
+    "e": "n",
+    "pst": "60,18",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "PE",
+    "n": "22222",
+    "nm": "ANDRÉ FERREIRA RODRIGUES",
+    "nmu": "ANDRÉ FERREIRA",
+    "sg": "PL",
+    "vap": 73714,
+    "pvap": "2,43",
+    "e": "n",
+    "pst": "60,18",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "PE",
+    "n": "43456",
+    "nm": "LARA DE OLIVEIRA SANTANA",
+    "nmu": "LARA SANTANA",
+    "sg": "PV",
+    "vap": 67581,
+    "pvap": "2,22",
+    "e": "n",
+    "pst": "60,18",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Governador",
+    "uf": "PI",
+    "n": "13",
+    "nm": "RAFAEL TAJRA FONTELES",
+    "nmu": "RAFAEL FONTELES",
+    "sg": "PT",
+    "vap": 1054405,
+    "pvap": "69,96",
+    "e": "n",
+    "pst": "75,04",
+    "status": "Eleito (1º Turno)",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300",
+    "top2": {
+      "cargo": "Governador",
+      "uf": "PI",
+      "n": "11",
+      "nm": "JOEL RODRIGUES DA SILVA",
+      "nmu": "JOEL RODRIGUES",
+      "sg": "PP",
+      "vap": 427318,
+      "pvap": "28,35",
+      "e": "n",
+      "pst": "75,04"
+    }
+  },
+  {
+    "cargo": "Senador",
+    "uf": "PI",
+    "n": "151",
+    "nm": "MARCELO COSTA E CASTRO",
+    "nmu": "MARCELO CASTRO",
+    "sg": "MDB",
+    "vap": 959149,
+    "pvap": "35,16",
+    "e": "n",
+    "pst": "75,04",
+    "status": "Eleito (1ª Vaga)",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Senador",
+    "uf": "PI",
+    "n": "555",
+    "nm": "JULIO CESAR DE CARVALHO LIMA",
+    "nmu": "JÚLIO CÉSAR O JULIM DO LULA",
+    "sg": "PSD",
+    "vap": 736137,
+    "pvap": "26,98",
+    "e": "n",
+    "pst": "75,04",
+    "status": "Eleito (2ª Vaga)",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "PI",
+    "n": "5555",
+    "nm": "GEORGIANO FERNANDES LIMA NETO",
+    "nmu": "GEORGIANO",
+    "sg": "PSD",
+    "vap": 179323,
+    "pvap": "11,41",
+    "e": "n",
+    "pst": "75,04",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "PI",
+    "n": "4321",
+    "nm": "CHARLES DE HOLANDA PESSOA",
+    "nmu": "DELEGADO CHARLES",
+    "sg": "PV",
+    "vap": 137941,
+    "pvap": "8,78",
+    "e": "n",
+    "pst": "75,04",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "PI",
+    "n": "1515",
+    "nm": "JOSÉ DIAS DE CASTRO NETO",
+    "nmu": "CASTRO NETO",
+    "sg": "MDB",
+    "vap": 121239,
+    "pvap": "7,71",
+    "e": "n",
+    "pst": "75,04",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "PI",
+    "n": "1311",
+    "nm": "JOSE RIBAMAR NOLETO DE SANTANA",
+    "nmu": "ZÉ SANTANA",
+    "sg": "PT",
+    "vap": 96685,
+    "pvap": "6,15",
+    "e": "n",
+    "pst": "75,04",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "PI",
+    "n": "15101",
+    "nm": "SEVERO MARIA EULALIO NETO",
+    "nmu": "SEVERO EULÁLIO",
+    "sg": "MDB",
+    "vap": 69859,
+    "pvap": "4,46",
+    "e": "n",
+    "pst": "75,04",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "PI",
+    "n": "13258",
+    "nm": "FLAVIO RODRIGUES NOGUEIRA JUNIOR",
+    "nmu": "FLÁVIO JÚNIOR",
+    "sg": "PT",
+    "vap": 50802,
+    "pvap": "3,25",
+    "e": "n",
+    "pst": "75,04",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "PI",
+    "n": "13121",
+    "nm": "VINICIUS PONTES DO NASCIMENTO",
+    "nmu": "DR. VINICIUS",
+    "sg": "PT",
+    "vap": 44358,
+    "pvap": "2,83",
+    "e": "n",
+    "pst": "75,04",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "PI",
+    "n": "55789",
+    "nm": "ANTONIEL DE SOUSA SILVA",
+    "nmu": "TONINHO DE CARIDADE",
+    "sg": "PSD",
+    "vap": 42783,
+    "pvap": "2,73",
+    "e": "n",
+    "pst": "75,04",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Governador",
+    "uf": "RJ",
+    "n": "22",
+    "nm": "DOUGLAS RUAS DOS SANTOS",
+    "nmu": "DOUGLAS RUAS",
+    "sg": "PL",
+    "vap": 2359207,
+    "pvap": "50,69",
+    "e": "n",
+    "pst": "56,91",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200",
+    "top2": {
+      "cargo": "Governador",
+      "uf": "RJ",
+      "n": "55",
+      "nm": "EDUARDO DA COSTA PAES",
+      "nmu": "EDUARDO PAES",
+      "sg": "PSD",
+      "vap": 1912994,
+      "pvap": "41,10",
+      "e": "n",
+      "pst": "56,91"
+    }
+  },
+  {
+    "cargo": "Senador",
+    "uf": "RJ",
+    "n": "222",
+    "nm": "CARLOS FRANCISCO PORTINHO",
+    "nmu": "CARLOS PORTINHO",
+    "sg": "PL",
+    "vap": 2358275,
+    "pvap": "27,34",
+    "e": "n",
+    "pst": "56,91",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Senador",
+    "uf": "RJ",
+    "n": "221",
+    "nm": "CARLOS ROBERTO COELHO DE MATTOS JÚNIOR",
+    "nmu": "CARLOS JORDY",
+    "sg": "PL",
+    "vap": 2167440,
+    "pvap": "25,13",
+    "e": "n",
+    "pst": "56,91",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "RJ",
+    "n": "1177",
+    "nm": "LUIZ ANTONIO DE SOUZA TEIXEIRA JUNIOR",
+    "nmu": "DR. LUIZINHO",
+    "sg": "PP",
+    "vap": 121613,
+    "pvap": "2,51",
+    "e": "n",
+    "pst": "57,40",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "RJ",
+    "n": "1300",
+    "nm": "LUIZ LINDBERGH FARIAS FILHO",
+    "nmu": "LINDBERGH",
+    "sg": "PT",
+    "vap": 106587,
+    "pvap": "2,20",
+    "e": "n",
+    "pst": "57,40",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "RJ",
+    "n": "2269",
+    "nm": "ALTINEU CORTES FREITAS COUTINHO",
+    "nmu": "ALTINEU CORTES",
+    "sg": "PL",
+    "vap": 101677,
+    "pvap": "2,10",
+    "e": "n",
+    "pst": "57,40",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "RJ",
+    "n": "4545",
+    "nm": "LUCIANO VIEIRA MENDES",
+    "nmu": "LUCIANO VIEIRA",
+    "sg": "PSDB",
+    "vap": 98559,
+    "pvap": "2,04",
+    "e": "n",
+    "pst": "57,40",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "RJ",
+    "n": "22322",
+    "nm": "AMANDA BRANDÃO PAES ARMELAU",
+    "nmu": "ÍNDIA ARMELAU",
+    "sg": "PL",
+    "vap": 119580,
+    "pvap": "2,48",
+    "e": "n",
+    "pst": "57,40",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "RJ",
+    "n": "44444",
+    "nm": "MÁRCIO CORREIA DE OLIVEIRA",
+    "nmu": "MÁRCIO CANELLA",
+    "sg": "UNIÃO",
+    "vap": 115230,
+    "pvap": "2,39",
+    "e": "n",
+    "pst": "57,40",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "RJ",
+    "n": "22222",
+    "nm": "GUILHERME JANDRE DELAROLI",
+    "nmu": "GUILHERME DELAROLI",
+    "sg": "PL",
+    "vap": 96958,
+    "pvap": "2,01",
+    "e": "n",
+    "pst": "57,40",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "RJ",
+    "n": "15016",
+    "nm": "ROSENVERG REIS DE OLIVEIRA",
+    "nmu": "ROSENVERG REIS",
+    "sg": "MDB",
+    "vap": 87137,
+    "pvap": "1,81",
+    "e": "n",
+    "pst": "57,40",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Governador",
+    "uf": "RN",
+    "n": "13",
+    "nm": "CARLOS EDUARDO XAVIER",
+    "nmu": "CADU DE LULA",
+    "sg": "PT",
+    "vap": 488051,
+    "pvap": "36,64",
+    "e": "n",
+    "pst": "69,24",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200",
+    "top2": {
+      "cargo": "Governador",
+      "uf": "RN",
+      "n": "44",
+      "nm": "ALLYSON LEANDRO BEZERRA SILVA",
+      "nmu": "ALLYSON",
+      "sg": "UNIÃO",
+      "vap": 480739,
+      "pvap": "36,09",
+      "e": "n",
+      "pst": "69,24"
+    }
+  },
+  {
+    "cargo": "Senador",
+    "uf": "RN",
+    "n": "200",
+    "nm": "EANN STYVENSON VALENTIM MENDES",
+    "nmu": "STYVENSON VALENTIM",
+    "sg": "PODE",
+    "vap": 707729,
+    "pvap": "29,19",
+    "e": "n",
+    "pst": "69,24",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Senador",
+    "uf": "RN",
+    "n": "131",
+    "nm": "SAMANDA ALVES DE FREITAS",
+    "nmu": "SAMANDA DE LULA",
+    "sg": "PT",
+    "vap": 431064,
+    "pvap": "17,78",
+    "e": "n",
+    "pst": "69,24",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "RN",
+    "n": "1311",
+    "nm": "NATALIA BASTOS BONAVIDES",
+    "nmu": "NATÁLIA BONAVIDES",
+    "sg": "PT",
+    "vap": 142270,
+    "pvap": "10,78",
+    "e": "n",
+    "pst": "69,24",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "RN",
+    "n": "2233",
+    "nm": "YRAGUACY ARAUJO ALMEIDA DE SOUZA",
+    "nmu": "NINA",
+    "sg": "PL",
+    "vap": 124252,
+    "pvap": "9,41",
+    "e": "n",
+    "pst": "69,24",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "RN",
+    "n": "4444",
+    "nm": "LUIZ BENES LEOCADIO DE ARAUJO",
+    "nmu": "BENES LEOCÁDIO",
+    "sg": "UNIÃO",
+    "vap": 119880,
+    "pvap": "9,08",
+    "e": "n",
+    "pst": "69,24",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "RN",
+    "n": "2222",
+    "nm": "EVANDRO GONCALVES DA SILVA JUNIOR",
+    "nmu": "SARGENTO GONÇALVES",
+    "sg": "PL",
+    "vap": 96838,
+    "pvap": "7,34",
+    "e": "n",
+    "pst": "69,24",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "RN",
+    "n": "22222",
+    "nm": "ANDRE LUIZ VIEIRA DE AZEVEDO",
+    "nmu": "CORONEL AZEVEDO",
+    "sg": "PL",
+    "vap": 72433,
+    "pvap": "5,56",
+    "e": "n",
+    "pst": "69,30",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "RN",
+    "n": "45678",
+    "nm": "EZEQUIEL GALVAO FERREIRA DE SOUZA",
+    "nmu": "EZEQUIEL",
+    "sg": "PSDB",
+    "vap": 49484,
+    "pvap": "3,80",
+    "e": "n",
+    "pst": "69,30",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "RN",
+    "n": "13222",
+    "nm": "FRANCISCO ASSIS DE MEDEIROS",
+    "nmu": "FRANCISCO DO PT",
+    "sg": "PT",
+    "vap": 49472,
+    "pvap": "3,79",
+    "e": "n",
+    "pst": "69,30",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "RN",
+    "n": "44555",
+    "nm": "ROBSON RICARDO MACHADO LIMA DE CARVALHO",
+    "nmu": "ROBSON CARVALHO",
+    "sg": "UNIÃO",
+    "vap": 46482,
+    "pvap": "3,56",
+    "e": "n",
+    "pst": "69,30",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Governador",
+    "uf": "RS",
+    "n": "22",
+    "nm": "LUCIANO LORENZINI ZUCCO",
+    "nmu": "ZUCCO",
+    "sg": "PL",
+    "vap": 3220163,
+    "pvap": "57,88",
+    "e": "n",
+    "pst": "91,53",
+    "status": "Eleito (1º Turno)",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300",
+    "top2": {
+      "cargo": "Governador",
+      "uf": "RS",
+      "n": "12",
+      "nm": "JULIANA BRIZOLA",
+      "nmu": "JULIANA BRIZOLA",
+      "sg": "PDT",
+      "vap": 1773611,
+      "pvap": "31,88",
+      "e": "n",
+      "pst": "91,53"
+    }
+  },
+  {
+    "cargo": "Senador",
+    "uf": "RS",
+    "n": "222",
+    "nm": "UBIRATAN ANTUNES SANDERSON",
+    "nmu": "SANDERSON",
+    "sg": "PL",
+    "vap": 3162347,
+    "pvap": "30,02",
+    "e": "n",
+    "pst": "91,53",
+    "status": "Eleito (1ª Vaga)",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Senador",
+    "uf": "RS",
+    "n": "300",
+    "nm": "MARCEL VAN HATTEM",
+    "nmu": "MARCEL VAN HATTEM",
+    "sg": "NOVO",
+    "vap": 3159195,
+    "pvap": "29,99",
+    "e": "n",
+    "pst": "91,53",
+    "status": "Eleito (2ª Vaga)",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "RS",
+    "n": "2277",
+    "nm": "MAURICIO BEDIN MARCON",
+    "nmu": "MAURÍCIO MARCON",
+    "sg": "PL",
+    "vap": 351618,
+    "pvap": "6,31",
+    "e": "n",
+    "pst": "90,91",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "RS",
+    "n": "5050",
+    "nm": "FERNANDA MELCHIONNA E SILVA",
+    "nmu": "FERNANDA MELCHIONNA",
+    "sg": "PSOL",
+    "vap": 263216,
+    "pvap": "4,72",
+    "e": "n",
+    "pst": "90,91",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "RS",
+    "n": "2222",
+    "nm": "GIOVANI CHERINI",
+    "nmu": "GIOVANI CHERINI",
+    "sg": "PL",
+    "vap": 213284,
+    "pvap": "3,83",
+    "e": "n",
+    "pst": "90,91",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "RS",
+    "n": "2022",
+    "nm": "RONY DE ASSIS GABRIEL",
+    "nmu": "RONY GABRIEL",
+    "sg": "PODE",
+    "vap": 207222,
+    "pvap": "3,72",
+    "e": "n",
+    "pst": "90,91",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "RS",
+    "n": "50000",
+    "nm": "LUCIANA KREBS GENRO",
+    "nmu": "LUCIANA GENRO",
+    "sg": "PSOL",
+    "vap": 119174,
+    "pvap": "2,14",
+    "e": "n",
+    "pst": "90,91",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "RS",
+    "n": "22222",
+    "nm": "ADRIANE CERINI",
+    "nmu": "ADRI CHERINI",
+    "sg": "PL",
+    "vap": 117615,
+    "pvap": "2,11",
+    "e": "n",
+    "pst": "90,91",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "RS",
+    "n": "22777",
+    "nm": "CLAUDIO MAXIMILIANO BRANCHIERI",
+    "nmu": "PROFESSOR CLÁUDIO BRANCHIERI",
+    "sg": "PL",
+    "vap": 115002,
+    "pvap": "2,06",
+    "e": "n",
+    "pst": "90,91",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "RS",
+    "n": "10222",
+    "nm": "RODRIGO LORENZINI ZUCCO",
+    "nmu": "DELEGADO ZUCCO",
+    "sg": "REPUBLICANOS",
+    "vap": 111559,
+    "pvap": "2,00",
+    "e": "n",
+    "pst": "90,91",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Governador",
+    "uf": "RO",
+    "n": "22",
+    "nm": "MARCOS ROGERIO DA SILVA BRITO",
+    "nmu": "MARCOS ROGÉRIO",
+    "sg": "PL",
+    "vap": 509168,
+    "pvap": "57,02",
+    "e": "n",
+    "pst": "94,68",
+    "status": "Eleito (1º Turno)",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300",
+    "top2": {
+      "cargo": "Governador",
+      "uf": "RO",
+      "n": "55",
+      "nm": "ADAILTON ANTUNES FERREIRA",
+      "nmu": "ADAILTON FURIA",
+      "sg": "PSD",
+      "vap": 172403,
+      "pvap": "19,31",
+      "e": "n",
+      "pst": "94,68"
+    }
+  },
+  {
+    "cargo": "Senador",
+    "uf": "RO",
+    "n": "221",
+    "nm": "FERNANDO RODRIGUES MÁXIMO",
+    "nmu": "DR. FERNANDO MÁXIMO",
+    "sg": "PL",
+    "vap": 537532,
+    "pvap": "31,86",
+    "e": "n",
+    "pst": "94,68",
+    "status": "Eleito (1ª Vaga)",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Senador",
+    "uf": "RO",
+    "n": "222",
+    "nm": "BRUNO SCHEID",
+    "nmu": "BRUNO SCHEID",
+    "sg": "PL",
+    "vap": 445639,
+    "pvap": "26,41",
+    "e": "n",
+    "pst": "94,68",
+    "status": "Eleito (2ª Vaga)",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "RO",
+    "n": "2222",
+    "nm": "LUCIO ANTONIO MOSQUINI",
+    "nmu": "LUCIO MOSQUINI",
+    "sg": "PL",
+    "vap": 147788,
+    "pvap": "16,72",
+    "e": "n",
+    "pst": "94,68",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "RO",
+    "n": "2210",
+    "nm": "JOAO CHRISOSTOMO DE MOURA",
+    "nmu": "CORONEL CHRISÓSTOMO",
+    "sg": "PL",
+    "vap": 48515,
+    "pvap": "5,49",
+    "e": "n",
+    "pst": "94,68",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "RO",
+    "n": "4422",
+    "nm": "THIAGO LEITE FLORES PEREIRA",
+    "nmu": "THIAGO FLORES",
+    "sg": "UNIÃO",
+    "vap": 40505,
+    "pvap": "4,58",
+    "e": "n",
+    "pst": "94,68",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "RO",
+    "n": "2233",
+    "nm": "SOFIA ANDRADE DE AGUIAR GOMES",
+    "nmu": "SOFIA ANDRADE",
+    "sg": "PL",
+    "vap": 36719,
+    "pvap": "4,15",
+    "e": "n",
+    "pst": "94,68",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "RO",
+    "n": "55123",
+    "nm": "LAERTE GOMES",
+    "nmu": "LAERTE GOMES",
+    "sg": "PSD",
+    "vap": 31475,
+    "pvap": "3,53",
+    "e": "n",
+    "pst": "94,68",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "RO",
+    "n": "22800",
+    "nm": "ALEXANDRO BARROSO DUARTE",
+    "nmu": "NIM BARROSO",
+    "sg": "PL",
+    "vap": 28203,
+    "pvap": "3,16",
+    "e": "n",
+    "pst": "94,68",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "RO",
+    "n": "22000",
+    "nm": "LUCAS TORRES RIBEIRO",
+    "nmu": "DELEGADO LUCAS TORRES",
+    "sg": "PL",
+    "vap": 25813,
+    "pvap": "2,89",
+    "e": "n",
+    "pst": "94,68",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "RO",
+    "n": "22123",
+    "nm": "LUIZ ALBERTO GOEBEL",
+    "nmu": "LUIZINHO GOEBEL",
+    "sg": "PL",
+    "vap": 24953,
+    "pvap": "2,80",
+    "e": "n",
+    "pst": "94,68",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Governador",
+    "uf": "RR",
+    "n": "22",
+    "nm": "ARTHUR HENRIQUE BRANDAO MACHADO",
+    "nmu": "ARTHUR HENRIQUE",
+    "sg": "PL",
+    "vap": 205368,
+    "pvap": "69,25",
+    "e": "n",
+    "pst": "93,22",
+    "status": "Eleito (1º Turno)",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300",
+    "top2": {
+      "cargo": "Governador",
+      "uf": "RR",
+      "n": "10",
+      "nm": "FRANCISCO DOS SANTOS SAMPAIO",
+      "nmu": "SOLDADO SAMPAIO",
+      "sg": "REPUBLICANOS",
+      "vap": 86491,
+      "pvap": "29,17",
+      "e": "n",
+      "pst": "93,22"
+    }
+  },
+  {
+    "cargo": "Senador",
+    "uf": "RR",
+    "n": "227",
+    "nm": "ANTONIO CARLOS NICOLETTI",
+    "nmu": "NICOLETTI",
+    "sg": "PL",
+    "vap": 128923,
+    "pvap": "22,77",
+    "e": "n",
+    "pst": "93,22",
+    "status": "Eleito (1ª Vaga)",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Senador",
+    "uf": "RR",
+    "n": "155",
+    "nm": "MARIA TERESA SAENZ SURITA GUIMARÃES",
+    "nmu": "TERESA SURITA",
+    "sg": "MDB",
+    "vap": 108292,
+    "pvap": "19,13",
+    "e": "n",
+    "pst": "93,22",
+    "status": "Eleito (2ª Vaga)",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "RR",
+    "n": "1011",
+    "nm": "MARCOS JORGE DE LIMA",
+    "nmu": "MARCOS JORGE",
+    "sg": "REPUBLICANOS",
+    "vap": 20817,
+    "pvap": "7,03",
+    "e": "n",
+    "pst": "93,22",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "RR",
+    "n": "1033",
+    "nm": "ITALO OTAVIO TEIXEIRA PINTO",
+    "nmu": "ÍTALO OTÁVIO",
+    "sg": "REPUBLICANOS",
+    "vap": 18824,
+    "pvap": "6,36",
+    "e": "n",
+    "pst": "93,22",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "RR",
+    "n": "2021",
+    "nm": "RODRIGO FERNANDES MESQUITA",
+    "nmu": "RODRIGO MESQUITA",
+    "sg": "PODE",
+    "vap": 18714,
+    "pvap": "6,32",
+    "e": "n",
+    "pst": "93,22",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "RR",
+    "n": "2222",
+    "nm": "DANIEL PEDREIRO DA TRINDADE",
+    "nmu": "DANIEL TRINDADE",
+    "sg": "PL",
+    "vap": 15548,
+    "pvap": "5,25",
+    "e": "n",
+    "pst": "93,22",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "RR",
+    "n": "22222",
+    "nm": "MARCIO AGRA BELOTA",
+    "nmu": "MARCINHO BELOTA",
+    "sg": "PL",
+    "vap": 10693,
+    "pvap": "3,58",
+    "e": "n",
+    "pst": "93,22",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "RR",
+    "n": "44444",
+    "nm": "JORGE EVERTON BARRETO GUIMARAES",
+    "nmu": "JORGE EVERTON",
+    "sg": "UNIÃO",
+    "vap": 10383,
+    "pvap": "3,47",
+    "e": "n",
+    "pst": "93,22",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "RR",
+    "n": "10789",
+    "nm": "DARBILENE RUFINO DO VALE",
+    "nmu": "DARBI DE JESUS",
+    "sg": "REPUBLICANOS",
+    "vap": 10207,
+    "pvap": "3,42",
+    "e": "n",
+    "pst": "93,22",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "RR",
+    "n": "22123",
+    "nm": "JOSE HAMILTON GOMES LOUREIRO NETO",
+    "nmu": "NETO LOUREIRO",
+    "sg": "PL",
+    "vap": 9425,
+    "pvap": "3,15",
+    "e": "n",
+    "pst": "93,22",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Governador",
+    "uf": "SC",
+    "n": "22",
+    "nm": "JORGINHO DOS SANTOS MELLO",
+    "nmu": "JORGINHO MELLO",
+    "sg": "PL",
+    "vap": 2431861,
+    "pvap": "68,31",
+    "e": "n",
+    "pst": "83,67",
+    "status": "Eleito (1º Turno)",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300",
+    "top2": {
+      "cargo": "Governador",
+      "uf": "SC",
+      "n": "40",
+      "nm": "GELSON LUIZ MERISIO",
+      "nmu": "GELSON MERÍSIO",
+      "sg": "PSB",
+      "vap": 566237,
+      "pvap": "15,91",
+      "e": "n",
+      "pst": "83,67"
+    }
+  },
+  {
+    "cargo": "Senador",
+    "uf": "SC",
+    "n": "221",
+    "nm": "CAROLINE RODRIGUES DE TONI",
+    "nmu": "CAROL DE TONI",
+    "sg": "PL",
+    "vap": 2244033,
+    "pvap": "33,38",
+    "e": "n",
+    "pst": "83,67",
+    "status": "Eleito (1ª Vaga)",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Senador",
+    "uf": "SC",
+    "n": "222",
+    "nm": "CARLOS NANTES BOLSONARO",
+    "nmu": "CARLOS BOLSONARO",
+    "sg": "PL",
+    "vap": 1682638,
+    "pvap": "25,03",
+    "e": "n",
+    "pst": "83,67",
+    "status": "Eleito (2ª Vaga)",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "SC",
+    "n": "2233",
+    "nm": "JULIA PEDROSO ZANATTA",
+    "nmu": "JULIA ZANATTA",
+    "sg": "PL",
+    "vap": 467486,
+    "pvap": "13,16",
+    "e": "n",
+    "pst": "83,67",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "SC",
+    "n": "1313",
+    "nm": "ANA PAULA DE SOUZA LIMA",
+    "nmu": "ANA PAULA LIMA",
+    "sg": "PT",
+    "vap": 166981,
+    "pvap": "4,70",
+    "e": "n",
+    "pst": "83,67",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "SC",
+    "n": "1350",
+    "nm": "PEDRO FRANCISCO UCZAI",
+    "nmu": "PROFESSOR PEDRO UCZAI",
+    "sg": "PT",
+    "vap": 146072,
+    "pvap": "4,11",
+    "e": "n",
+    "pst": "83,67",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "SC",
+    "n": "2212",
+    "nm": "CARLOS HENRIQUE DE LIMA",
+    "nmu": "SARGENTO LIMA",
+    "sg": "PL",
+    "vap": 109742,
+    "pvap": "3,09",
+    "e": "n",
+    "pst": "83,67",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "SC",
+    "n": "22222",
+    "nm": "ANA CAROLINE CAMPAGNOLO GALVAO",
+    "nmu": "ANA CAMPAGNOLO",
+    "sg": "PL",
+    "vap": 318893,
+    "pvap": "8,94",
+    "e": "n",
+    "pst": "83,45",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "SC",
+    "n": "13601",
+    "nm": "LUCIANE MARIA CARMINATTI",
+    "nmu": "LUCIANE CARMINATTI",
+    "sg": "PT",
+    "vap": 107129,
+    "pvap": "3,00",
+    "e": "n",
+    "pst": "83,45",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "SC",
+    "n": "44000",
+    "nm": "VICENTE AUGUSTO CAROPRESO",
+    "nmu": "DR. VICENTE",
+    "sg": "UNIÃO",
+    "vap": 73789,
+    "pvap": "2,07",
+    "e": "n",
+    "pst": "83,45",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "SC",
+    "n": "44500",
+    "nm": "SERGIO DA ROSA GUIMARAES",
+    "nmu": "SÉRGIO GUIMARÃES",
+    "sg": "UNIÃO",
+    "vap": 69301,
+    "pvap": "1,94",
+    "e": "n",
+    "pst": "83,45",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Governador",
+    "uf": "SP",
+    "n": "10",
+    "nm": "TARCISIO GOMES DE FREITAS",
+    "nmu": "TARCÍSIO",
+    "sg": "REPUBLICANOS",
+    "vap": 11062407,
+    "pvap": "63,26",
+    "e": "n",
+    "pst": "76,22",
+    "status": "Eleito (1º Turno)",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300",
+    "top2": {
+      "cargo": "Governador",
+      "uf": "SP",
+      "n": "13",
+      "nm": "FERNANDO HADDAD",
+      "nmu": "FERNANDO HADDAD",
+      "sg": "PT",
+      "vap": 6264040,
+      "pvap": "35,82",
+      "e": "n",
+      "pst": "76,22"
+    }
+  },
+  {
+    "cargo": "Senador",
+    "uf": "SP",
+    "n": "111",
+    "nm": "GUILHERME MURARO DERRITE",
+    "nmu": "GUILHERME DERRITE",
+    "sg": "PP",
+    "vap": 10142591,
+    "pvap": "30,90",
+    "e": "n",
+    "pst": "76,22",
+    "status": "Eleito (1ª Vaga)",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Senador",
+    "uf": "SP",
+    "n": "222",
+    "nm": "ANDRE LUIS DO PRADO",
+    "nmu": "ANDRÉ DO PRADO",
+    "sg": "PL",
+    "vap": 9700787,
+    "pvap": "29,55",
+    "e": "n",
+    "pst": "76,22",
+    "status": "Eleito (2ª Vaga)",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "SP",
+    "n": "2211",
+    "nm": "LUCAS PAVANATO DE OLIVEIRA",
+    "nmu": "LUCAS PAVANATO",
+    "sg": "PL",
+    "vap": 2206275,
+    "pvap": "12,97",
+    "e": "n",
+    "pst": "72,46",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "SP",
+    "n": "5070",
+    "nm": "ERIKA HILTON",
+    "nmu": "ERIKA HILTON",
+    "sg": "PSOL",
+    "vap": 1131604,
+    "pvap": "6,65",
+    "e": "n",
+    "pst": "72,46",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "SP",
+    "n": "5000",
+    "nm": "SÂMIA DE SOUZA BOMFIM",
+    "nmu": "SÂMIA BOMFIM",
+    "sg": "PSOL",
+    "vap": 417604,
+    "pvap": "2,46",
+    "e": "n",
+    "pst": "72,46",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "SP",
+    "n": "1414",
+    "nm": "KIM PATROCA KATAGUIRI",
+    "nmu": "KIM KATAGUIRI",
+    "sg": "MISSÃO",
+    "vap": 371225,
+    "pvap": "2,18",
+    "e": "n",
+    "pst": "72,46",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "SP",
+    "n": "22011",
+    "nm": "MARIA EDUARDA CAMPOPIANO MONTEIRO",
+    "nmu": "EDUARDA CAMPOPIANO",
+    "sg": "PL",
+    "vap": 1354487,
+    "pvap": "8,45",
+    "e": "n",
+    "pst": "69,50",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "SP",
+    "n": "13133",
+    "nm": "EDUARDO MATARAZZO SUPLICY",
+    "nmu": "EDUARDO SUPLICY",
+    "sg": "PT",
+    "vap": 444742,
+    "pvap": "2,77",
+    "e": "n",
+    "pst": "69,50",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "SP",
+    "n": "50700",
+    "nm": "SOFIA FAVERO",
+    "nmu": "SOFIA FAVERO",
+    "sg": "PSOL",
+    "vap": 277242,
+    "pvap": "1,73",
+    "e": "n",
+    "pst": "69,50",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "SP",
+    "n": "50789",
+    "nm": "CARLOS ALBERTO GIANNASI",
+    "nmu": "CARLOS GIANNAZI",
+    "sg": "PSOL",
+    "vap": 261754,
+    "pvap": "1,63",
+    "e": "n",
+    "pst": "69,50",
+    "status": "Liderando",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-200"
+  },
+  {
+    "cargo": "Governador",
+    "uf": "SE",
+    "n": "55",
+    "nm": "FABIO CRUZ MITIDIERI",
+    "nmu": "FÁBIO",
+    "sg": "PSD",
+    "vap": 595256,
+    "pvap": "58,88",
+    "e": "n",
+    "pst": "83,83",
+    "status": "Eleito (1º Turno)",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300",
+    "top2": {
+      "cargo": "Governador",
+      "uf": "SE",
+      "n": "10",
+      "nm": "VALMIR DOS SANTOS COSTA",
+      "nmu": "VALMIR DE FRANCISQUINHO",
+      "sg": "REPUBLICANOS",
+      "vap": 380397,
+      "pvap": "37,63",
+      "e": "n",
+      "pst": "83,83"
+    }
+  },
+  {
+    "cargo": "Senador",
+    "uf": "SE",
+    "n": "131",
+    "nm": "ROGERIO CARVALHO SANTOS",
+    "nmu": "ROGERIO CARVALHO",
+    "sg": "PT",
+    "vap": 413787,
+    "pvap": "21,56",
+    "e": "n",
+    "pst": "83,83",
+    "status": "Eleito (1ª Vaga)",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Senador",
+    "uf": "SE",
+    "n": "155",
+    "nm": "ALESSANDRO VIEIRA",
+    "nmu": "DELEGADO ALESSANDRO",
+    "sg": "MDB",
+    "vap": 327044,
+    "pvap": "17,04",
+    "e": "n",
+    "pst": "83,83",
+    "status": "Eleito (2ª Vaga)",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "SE",
+    "n": "4444",
+    "nm": "YANDRA BARRETO FERREIRA",
+    "nmu": "YANDRA MOURA",
+    "sg": "UNIÃO",
+    "vap": 87966,
+    "pvap": "8,28",
+    "e": "n",
+    "pst": "83,83",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "SE",
+    "n": "4040",
+    "nm": "CLAUDIO MITIDIERI SIMÕES",
+    "nmu": "CLAUDIO MITIDIERI",
+    "sg": "PSB",
+    "vap": 85090,
+    "pvap": "8,01",
+    "e": "n",
+    "pst": "83,83",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "SE",
+    "n": "1311",
+    "nm": "JOAO SOMARIVA DANIEL",
+    "nmu": "JOAO DANIEL",
+    "sg": "PT",
+    "vap": 71385,
+    "pvap": "6,72",
+    "e": "n",
+    "pst": "83,83",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "SE",
+    "n": "5555",
+    "nm": "FABIO DE ALMEIDA REIS",
+    "nmu": "FÁBIO REIS",
+    "sg": "PSD",
+    "vap": 60351,
+    "pvap": "5,68",
+    "e": "n",
+    "pst": "83,83",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "SE",
+    "n": "44444",
+    "nm": "CHRISTIANO ROGÉRIO RÊGO CAVALCANTE",
+    "nmu": "CRISTIANO CAVALCANTE",
+    "sg": "UNIÃO",
+    "vap": 42838,
+    "pvap": "4,04",
+    "e": "n",
+    "pst": "83,83",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "SE",
+    "n": "50180",
+    "nm": "LINDA BRASIL AZEVEDO SANTOS",
+    "nmu": "LINDA BRASIL",
+    "sg": "PSOL",
+    "vap": 40576,
+    "pvap": "3,82",
+    "e": "n",
+    "pst": "83,83",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "SE",
+    "n": "55777",
+    "nm": "JORGE ARAUJO FILHO",
+    "nmu": "JORGINHO ARAUJO",
+    "sg": "PSD",
+    "vap": 38332,
+    "pvap": "3,61",
+    "e": "n",
+    "pst": "83,83",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "SE",
+    "n": "40000",
+    "nm": "JOSE MACEDO SOBRAL",
+    "nmu": "ZEZINHO SOBRAL",
+    "sg": "PSB",
+    "vap": 36812,
+    "pvap": "3,47",
+    "e": "n",
+    "pst": "83,83",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Governador",
+    "uf": "TO",
+    "n": "44",
+    "nm": "MARIA AUXILIADORA SEABRA REZENDE",
+    "nmu": "PROFESSORA DORINHA",
+    "sg": "UNIÃO",
+    "vap": 373519,
+    "pvap": "45,70",
+    "e": "n",
+    "pst": "96,42",
+    "status": "2º Turno (PROFESSORA DORINHA vs VICENTINHO JÚNIOR)",
+    "badgeColor": "bg-amber-100 text-amber-800 border-amber-300",
+    "top2": {
+      "cargo": "Governador",
+      "uf": "TO",
+      "n": "45",
+      "nm": "VICENTE ALVES DE OLIVEIRA JÚNIOR",
+      "nmu": "VICENTINHO JÚNIOR",
+      "sg": "PSDB",
+      "vap": 357725,
+      "pvap": "43,77",
+      "e": "n",
+      "pst": "96,42"
+    }
+  },
+  {
+    "cargo": "Senador",
+    "uf": "TO",
+    "n": "222",
+    "nm": "CARLOS EDUARDO TORRES GOMES",
+    "nmu": "EDUARDO GOMES",
+    "sg": "PL",
+    "vap": 434950,
+    "pvap": "27,32",
+    "e": "n",
+    "pst": "96,42",
+    "status": "Eleito (1ª Vaga)",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Senador",
+    "uf": "TO",
+    "n": "153",
+    "nm": "JOSÉ ALEXANDRE DOMINGUES GUIMARÃES",
+    "nmu": "ALEXANDRE GUIMARÃES",
+    "sg": "MDB",
+    "vap": 304838,
+    "pvap": "19,15",
+    "e": "n",
+    "pst": "96,42",
+    "status": "Eleito (2ª Vaga)",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "TO",
+    "n": "1111",
+    "nm": "JANAD MARQUES DE FREITAS VALCARI",
+    "nmu": "PROFESSORA JANAD VALCARI",
+    "sg": "PP",
+    "vap": 97476,
+    "pvap": "11,17",
+    "e": "n",
+    "pst": "96,42",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "TO",
+    "n": "4477",
+    "nm": "ANTONIO JAIR ABREU FARIAS",
+    "nmu": "JAIR FARIAS",
+    "sg": "UNIÃO",
+    "vap": 91834,
+    "pvap": "10,52",
+    "e": "n",
+    "pst": "96,42",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "TO",
+    "n": "1000",
+    "nm": "LUCAS GOMES PINHEIRO NETO",
+    "nmu": "LUCAS CAMPELO",
+    "sg": "REPUBLICANOS",
+    "vap": 78264,
+    "pvap": "8,97",
+    "e": "n",
+    "pst": "96,42",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Federal",
+    "uf": "TO",
+    "n": "1010",
+    "nm": "RICARDO AYRES DE CARVALHO",
+    "nmu": "RICARDO AYRES",
+    "sg": "REPUBLICANOS",
+    "vap": 66844,
+    "pvap": "7,66",
+    "e": "n",
+    "pst": "96,42",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "TO",
+    "n": "10111",
+    "nm": "EDUARDO MALHEIRO RIBEIRO FORTES",
+    "nmu": "EDUARDO FORTES",
+    "sg": "REPUBLICANOS",
+    "vap": 35096,
+    "pvap": "3,98",
+    "e": "n",
+    "pst": "96,42",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "TO",
+    "n": "10100",
+    "nm": "YHGOR LEONARDO CASTRO LEITE",
+    "nmu": "LEO BARBOSA",
+    "sg": "REPUBLICANOS",
+    "vap": 34746,
+    "pvap": "3,94",
+    "e": "n",
+    "pst": "96,42",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "TO",
+    "n": "22700",
+    "nm": "VILMAR ALVES DE OLIVEIRA",
+    "nmu": "VILMAR",
+    "sg": "PL",
+    "vap": 25787,
+    "pvap": "2,92",
+    "e": "n",
+    "pst": "96,42",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  },
+  {
+    "cargo": "Deputado Estadual",
+    "uf": "TO",
+    "n": "22123",
+    "nm": "MOISEMAR ALVES MARINHO",
+    "nmu": "MOISEMAR MARINHO",
+    "sg": "PL",
+    "vap": 25458,
+    "pvap": "2,89",
+    "e": "n",
+    "pst": "96,42",
+    "status": "Eleito / Líder",
+    "badgeColor": "bg-emerald-100 text-emerald-800 border-emerald-300"
+  }
+];
 
     const NOME_ESTADOS = {
       "AC": "Acre", "AL": "Alagoas", "AP": "Amapá", "AM": "Amazonas", "BA": "Bahia",
@@ -1083,133 +5741,41 @@
     };
 
     let selectedUF = 'BR';
-    let lastRenderedMilestone = -1;
+    let filterCargo = 'todos';
 
     function fmt(n) { return Number(n || 0).toLocaleString('pt-BR'); }
     function parsePct(s) { return parseFloat(String(s || "0").replace(',', '.')); }
 
-    function renderMapAndScore() {
-      let flavioStates = 0;
-      let lulaStates = 0;
-
-      Object.keys(NOME_ESTADOS).forEach(uf => {
-        const d = TSE_DATA[uf];
-        if (!d) return;
-
-        const fPct = parsePct(d.flavioPct);
-        const lPct = parsePct(d.lulaPct);
-
-        if (fPct > lPct) flavioStates++;
-        else lulaStates++;
-
-        const g = document.getElementById(`uf-${uf}`);
-        if (g) {
-          const col = fPct > lPct ? '#2563eb' : '#dc2626';
-          g.querySelectorAll('path').forEach(p => p.style.fill = col);
-        }
-      });
-
-      // Total Brasil
-      const br = TSE_DATA['BR'];
-      if (br) {
-        document.getElementById('nat-flavio-pct').innerText = `${br.flavioPct}%`;
-        document.getElementById('nat-flavio-votos').innerText = `${fmt(br.flavio)} votos`;
-        document.getElementById('nat-lula-pct').innerText = `${br.lulaPct}%`;
-        document.getElementById('nat-lula-votos').innerText = `${fmt(br.lula)} votos`;
-
-        document.getElementById('nat-urnas-pct').innerText = `${br.pst}%`;
-        document.getElementById('nat-secoes-label').innerText = `${fmt(br.st)} / ${fmt(br.ts)}`;
-
-        document.getElementById('bar-flavio').style.width = `${parsePct(br.flavioPct)}%`;
-        document.getElementById('bar-lula').style.width = `${parsePct(br.lulaPct)}%`;
-        document.getElementById('bar-outros').style.width = `${Math.max(0, 100 - parsePct(br.flavioPct) - parsePct(br.lulaPct))}%`;
-
-        document.getElementById('flavio-states-lead').innerText = `Flávio lidera em ${flavioStates} estados`;
-        document.getElementById('lula-states-lead').innerText = `Lula lidera em ${lulaStates} estados`;
-
-        // Atualizar badge de marco dinâmico de 3% no botão do cabeçalho
-        const pst = parsePct(br.pst);
-        const currentMilestone = Math.floor(pst / 3) * 3;
-        const badgeEl = document.getElementById('badge-milestone');
-        if (badgeEl) {
-          badgeEl.innerText = `Marco ${currentMilestone}%`;
-        }
-
-        // Se o modal estiver aberto, atualizar a análise automaticamente
-        const modal = document.getElementById('analysis-modal');
-        if (!modal.classList.contains('hidden')) {
-          renderDynamicAnalysis();
-        }
-      }
-
-      updateSelectedCard(selectedUF);
-    }
-
-    function updateSelectedCard(uf) {
-      selectedUF = uf;
-      const d = TSE_DATA[uf];
-      if (!d) return;
-
-      const nome = uf === 'BR' ? 'Brasil (Total)' : NOME_ESTADOS[uf];
-      document.getElementById('sel-uf').innerText = uf;
-      document.getElementById('sel-nome').innerText = nome;
-      document.getElementById('sel-urnas').innerText = `${d.pst}% das urnas apuradas`;
-      document.getElementById('sel-flavio').innerText = `Flávio: ${d.flavioPct}%`;
-      document.getElementById('sel-flavio-votos').innerText = `${fmt(d.flavio)} votos`;
-      document.getElementById('sel-lula').innerText = `Lula: ${d.lulaPct}%`;
-      document.getElementById('sel-lula-votos').innerText = `${fmt(d.lula)} votos`;
-
-      const diff = Math.abs(parsePct(d.flavioPct) - parsePct(d.lulaPct)).toFixed(2).replace('.', ',');
-      const lead = parsePct(d.flavioPct) > parsePct(d.lulaPct) ? 'Flávio' : 'Lula';
-      document.getElementById('sel-margem').innerText = `+${diff} p.p. (${lead})`;
-
-      document.querySelectorAll('.state-feature').forEach(el => el.classList.remove('active'));
-      const activeEl = document.getElementById(`uf-${uf}`);
-      if (activeEl) activeEl.classList.add('active');
-    }
-
-    // MOTOR DE ANÁLISE DINÂMICA REFEITA A CADA 3% DE URNAS
-    function renderDynamicAnalysis() {
+    // RENDERIZAR ANÁLISE / PROJEÇÃO NO INÍCIO DA TELA
+    function renderAnalysisSection() {
       const br = TSE_DATA['BR'];
       if (!br) return;
 
       const pst = parsePct(br.pst);
       const currentMilestone = Math.floor(pst / 3) * 3;
       const nextMilestone = currentMilestone + 3;
-      const progressInCycle = ((pst - currentMilestone) / 3 * 100).toFixed(0);
-      const remainingToNext = (nextMilestone - pst).toFixed(2).replace('.', ',');
+      const progressInCycle = Math.min(100, Math.max(0, ((pst - currentMilestone) / 3 * 100))).toFixed(0);
+      const remainingToNext = Math.max(0, nextMilestone - pst).toFixed(2).replace('.', ',');
 
-      // 1. Estatísticas Regionais em Tempo Real
-      const regStats = {};
-      for (const [key, reg] of Object.entries(REGIOES)) {
-        let ts = 0, st = 0, tv = 0, vv = 0, flavio = 0, lula = 0;
-        for (const uf of reg.ufs) {
-          const d = TSE_DATA[uf];
-          if (d) {
-            ts += d.ts || 0;
-            st += d.st || 0;
-            tv += d.tv || 0;
-            vv += d.vv || 0;
-            flavio += d.flavio || 0;
-            lula += d.lula || 0;
-          }
-        }
-        const regPst = ts > 0 ? (st / ts) * 100 : 0;
-        const fPct = vv > 0 ? (flavio / vv) * 100 : 0;
-        const lPct = vv > 0 ? (lula / vv) * 100 : 0;
-        regStats[key] = {
-          name: reg.name,
-          ts, st,
-          pending: ts - st,
-          pst: regPst.toFixed(2).replace('.', ','),
-          fPct: fPct.toFixed(2).replace('.', ','),
-          lPct: lPct.toFixed(2).replace('.', ','),
-          flavio, lula,
-          totalVotos: tv
-        };
-      }
+      // 1. Atualizar Placar Nacional
+      document.getElementById('nat-flavio-pct').innerText = `${br.flavioPct}%`;
+      document.getElementById('nat-flavio-votos').innerText = `${fmt(br.flavio)} votos`;
+      document.getElementById('nat-lula-pct').innerText = `${br.lulaPct}%`;
+      document.getElementById('nat-lula-votos').innerText = `${fmt(br.lula)} votos`;
+      document.getElementById('nat-urnas-pct').innerText = `${br.pst}%`;
+      document.getElementById('nat-secoes-label').innerText = `${fmt(br.st)} / ${fmt(br.ts)}`;
 
-      // 2. Projeção Matemática Ponderada Estado a Estado
+      document.getElementById('bar-flavio').style.width = `${parsePct(br.flavioPct)}%`;
+      document.getElementById('bar-lula').style.width = `${parsePct(br.lulaPct)}%`;
+      document.getElementById('bar-outros').style.width = `${Math.max(0, 100 - parsePct(br.flavioPct) - parsePct(br.lulaPct))}%`;
+
+      // 2. Marcos de 3%
+      document.getElementById('topo-marco-badge').innerText = `Marco: ${currentMilestone}% apurado`;
+      document.getElementById('ciclo-label-atual').innerText = `Ciclo Ativo: ${currentMilestone}% apurado (Atual: ${br.pst}%)`;
+      document.getElementById('ciclo-label-proximo').innerText = `Próxima revisão estatística em ${nextMilestone}% (faltam ${remainingToNext} p.p.)`;
+      document.getElementById('ciclo-progresso-bar').style.width = `${progressInCycle}%`;
+
+      // 3. Projeção Matemática Ponderada Estado a Estado
       let projFlavio = 0;
       let projLula = 0;
       let projValid = 0;
@@ -1238,207 +5804,236 @@
 
       const projFPct = projValid > 0 ? (projFlavio / projValid * 100).toFixed(2).replace('.', ',') : '--';
       const projLPct = projValid > 0 ? (projLula / projValid * 100).toFixed(2).replace('.', ',') : '--';
-      const projOutrosPct = projValid > 0 ? (100 - (projFlavio / projValid * 100) - (projLula / projValid * 100)).toFixed(2).replace('.', ',') : '--';
+      
+      document.getElementById('proj-flavio-pct').innerText = `${projFPct}%`;
+      document.getElementById('proj-flavio-votos').innerText = `${fmt(projFlavio)} votos est.`;
+      document.getElementById('proj-lula-pct').innerText = `${projLPct}%`;
+      document.getElementById('proj-lula-votos').innerText = `${fmt(projLula)} votos est.`;
+      document.getElementById('proj-validos-label').innerText = `${fmt(projValid)} votos válidos est.`;
 
-      // 3. Diagnóstico Dinâmico de Acordo com a Faixa de 3%
-      let phaseTitle = '';
-      let phaseDesc = '';
-      let secondRoundProb = '99,4%';
-
-      if (currentMilestone < 15) {
-        phaseTitle = 'Fase 1 • Largada Rápida do Sul/CO (0% a 15%)';
-        phaseDesc = 'A apuração inicial é historicamente dominada pelas seções eletrônicas mais ágeis do Sul, Centro-Oeste e cidades menores. A liderança de Flávio reflete essa assimetria de transmissão inicial.';
-        secondRoundProb = '98,5%';
-      } else if (currentMilestone < 30) {
-        phaseTitle = `Fase 2 • Ápice da Vantagem & Esgotamento do Sul (Marco ${currentMilestone}%)`;
-        phaseDesc = `Sul (${regStats.S.pst}%) e Centro-Oeste (${regStats.CO.pst}%) já ultrapassaram a metade da apuração, esgotando seus principais contingentes de votos pró-Flávio. Em contrapartida, mais de 76% do Nordeste e 80% do Sudeste continuam pendentes. A vantagem de Flávio atinge seu teto nominal agora.`;
-        secondRoundProb = '99,5%';
-      } else if (currentMilestone < 55) {
-        phaseTitle = `Fase 3 • Entrada do Grande Sudeste & Arrancada do Nordeste (Marco ${currentMilestone}%)`;
-        phaseDesc = 'Grandes colégios eleitorais de SP, MG e capitais nordestinas aceleram a transmissão. A margem de Flávio começa a encolher consistentemente com a entrada maciça do interior do Nordeste.';
-        secondRoundProb = '99,7%';
-      } else if (currentMilestone < 80) {
-        phaseTitle = `Fase 4 • Inflexão e Ponto de Cruzamento das Curvas (Marco ${currentMilestone}%)`;
-        phaseDesc = 'Volume maciço do interior da Bahia, Pernambuco, Ceará e periferias do Sudeste. Redução acentuada da diferença com consolidação matemática do 2º Turno.';
-        secondRoundProb = '99,9%';
+      // 4. Diagnóstico do Marco Ativo
+      const fNum = parsePct(br.flavioPct);
+      if (fNum < 50) {
+        document.getElementById('prob-segundo-turno').innerText = '2º Turno: 99,9% Confirmado';
+        document.getElementById('prob-segundo-turno').className = 'text-xs sm:text-sm font-black px-2.5 py-1 rounded-lg bg-emerald-100 text-emerald-800 border border-emerald-300 inline-block shadow-sm';
+        document.getElementById('fase-titulo').innerText = `Diagnóstico Oficial no Marco ${currentMilestone}%: Flávio caiu para ${br.flavioPct}%`;
+        document.getElementById('fase-desc').innerHTML = `
+          <strong>A liderança inicial de Flávio perdeu o fôlego matemático.</strong> Com o avanço das urnas do Nordeste (onde Lula vence por mais de 30 pontos) e grandes colégios do Sudeste, a vantagem caiu para menos de 50%. A disputa está <strong>garantida no 2º Turno</strong> entre Flávio Bolsonaro e Lula.
+        `;
+        document.getElementById('fase-gap-1t').innerText = `Flávio está a ${(50 - fNum).toFixed(2).replace('.', ',')} p.p. abaixo dos 50%`;
       } else {
-        phaseTitle = `Fase 5 • Reta Final de Consolidação Oficial (Marco ${currentMilestone}%)`;
-        phaseDesc = 'Poucas seções residuais restantes. Cenário matematicamente irreversível e confirmado pelo TSE para disputa em 2º Turno.';
-        secondRoundProb = '100%';
+        document.getElementById('prob-segundo-turno').innerText = '2º Turno: 99,4% Provável';
+        document.getElementById('fase-titulo').innerText = `Diagnóstico Oficial no Marco ${currentMilestone}%`;
+        document.getElementById('fase-desc').innerHTML = `
+          Embora Flávio apareça momentaneamente com ${br.flavioPct}%, as urnas pendentes do Nordeste e Sudeste contêm a esmagadora maioria dos votos válidos restantes, tornando estatisticamente impossível manter a taxa acima de 50%.
+        `;
       }
 
-      // Atualizar tag no topo do modal
-      document.getElementById('modal-milestone-tag').innerText = `Marco Oficial: ${currentMilestone}% apurado`;
+      // 5. Tabela Regional Dinâmica
+      renderRegionalTable();
+    }
 
-      // Montar HTML dinâmico do modal
-      const contentEl = document.getElementById('analysis-dynamic-content');
-      contentEl.innerHTML = `
-        <!-- Barra de Ciclo do Marco de 3% -->
-        <div class="bg-amber-50 border border-amber-200/90 rounded-2xl p-4 space-y-2">
-          <div class="flex flex-wrap items-center justify-between gap-2">
-            <div class="flex items-center gap-2">
-              <span class="w-3 h-3 rounded-full bg-amber-500 animate-ping"></span>
-              <span class="text-xs font-black text-amber-950 uppercase tracking-wide">
-                Ciclo de Revisão Ativo: ${currentMilestone}% apurado
+    function renderRegionalTable() {
+      const regStats = {};
+      for (const [key, reg] of Object.entries(REGIOES)) {
+        let ts = 0, st = 0, tv = 0, vv = 0, flavio = 0, lula = 0;
+        for (const uf of reg.ufs) {
+          const d = TSE_DATA[uf];
+          if (d) {
+            ts += d.ts || 0;
+            st += d.st || 0;
+            tv += d.tv || 0;
+            vv += d.vv || 0;
+            flavio += d.flavio || 0;
+            lula += d.lula || 0;
+          }
+        }
+        const regPst = ts > 0 ? (st / ts) * 100 : 0;
+        const fPct = vv > 0 ? (flavio / vv) * 100 : 0;
+        const lPct = vv > 0 ? (lula / vv) * 100 : 0;
+        regStats[key] = {
+          name: reg.name,
+          ts, st,
+          pending: ts - st,
+          pst: regPst.toFixed(2).replace('.', ','),
+          fPct: fPct.toFixed(2).replace('.', ','),
+          lPct: lPct.toFixed(2).replace('.', ','),
+          lead: fPct > lPct ? `Flávio (+${(fPct - lPct).toFixed(1).replace('.', ',')} p.p.)` : `Lula (+${(lPct - fPct).toFixed(1).replace('.', ',')} p.p.)`,
+          leadColor: fPct > lPct ? 'text-blue-700' : 'text-red-600'
+        };
+      }
+
+      const box = document.getElementById('regional-table-box');
+      box.innerHTML = `
+        <table class="w-full text-xs text-left">
+          <thead class="text-[10px] text-slate-400 uppercase border-b border-slate-200 bg-slate-100/60">
+            <tr>
+              <th class="py-2 px-3">Região</th>
+              <th class="py-2 px-3 text-center">Urnas Apuradas</th>
+              <th class="py-2 px-3 text-center">Urnas Pendentes</th>
+              <th class="py-2 px-3 text-right text-blue-700">Flávio %</th>
+              <th class="py-2 px-3 text-right text-red-600">Lula %</th>
+              <th class="py-2 px-3 text-right">Liderança Atual</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-200">
+            ${Object.values(regStats).map(r => `
+              <tr class="hover:bg-slate-100/60 transition">
+                <td class="py-2.5 px-3 font-bold text-slate-900">${r.name}</td>
+                <td class="py-2.5 px-3 text-center font-bold text-slate-800">${r.pst}%</td>
+                <td class="py-2.5 px-3 text-center text-slate-500 font-semibold">${fmt(r.pending)} seções</td>
+                <td class="py-2.5 px-3 text-right font-bold text-blue-700">${r.fPct}%</td>
+                <td class="py-2.5 px-3 text-right font-bold text-red-600">${r.lPct}%</td>
+                <td class="py-2.5 px-3 text-right font-black ${r.leadColor}">${r.lead}</td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      `;
+    }
+
+    // RENDERIZAR MAPA
+    function renderMap() {
+      let flavioStates = 0;
+      let lulaStates = 0;
+
+      Object.keys(NOME_ESTADOS).forEach(uf => {
+        const d = TSE_DATA[uf];
+        if (!d) return;
+
+        const fPct = parsePct(d.flavioPct);
+        const lPct = parsePct(d.lulaPct);
+
+        if (fPct > lPct) flavioStates++;
+        else lulaStates++;
+
+        const g = document.getElementById(`uf-${uf}`);
+        if (g) {
+          const col = fPct > lPct ? '#2563eb' : '#dc2626';
+          g.querySelectorAll('path').forEach(p => p.style.fill = col);
+        }
+      });
+
+      document.getElementById('flavio-states-lead').innerText = `Flávio lidera em ${flavioStates} estados`;
+      document.getElementById('lula-states-lead').innerText = `Lula lidera em ${lulaStates} estados`;
+      updateSelectedCard(selectedUF);
+    }
+
+    function updateSelectedCard(uf) {
+      selectedUF = uf;
+      const d = TSE_DATA[uf];
+      if (!d) return;
+
+      const nome = uf === 'BR' ? 'Brasil (Total)' : NOME_ESTADOS[uf];
+      document.getElementById('sel-uf').innerText = uf;
+      document.getElementById('sel-nome').innerText = nome;
+      document.getElementById('sel-urnas').innerText = `${d.pst}% das urnas apuradas`;
+      document.getElementById('sel-flavio').innerText = `Flávio: ${d.flavioPct}%`;
+      document.getElementById('sel-flavio-votos').innerText = `${fmt(d.flavio)} votos`;
+      document.getElementById('sel-lula').innerText = `Lula: ${d.lulaPct}%`;
+      document.getElementById('sel-lula-votos').innerText = `${fmt(d.lula)} votos`;
+
+      const diff = Math.abs(parsePct(d.flavioPct) - parsePct(d.lulaPct)).toFixed(2).replace('.', ',');
+      const lead = parsePct(d.flavioPct) > parsePct(d.lulaPct) ? 'Flávio' : 'Lula';
+      document.getElementById('sel-margem').innerText = `+${diff} p.p. (${lead})`;
+
+      document.querySelectorAll('.state-feature').forEach(el => el.classList.remove('active'));
+      const activeEl = document.getElementById(`uf-${uf}`);
+      if (activeEl) activeEl.classList.add('active');
+    }
+
+    // RENDERIZAR CANDIDATOS ELEITOS E FILTROS
+    function setFilterCargo(cargo) {
+      filterCargo = cargo;
+      document.querySelectorAll('.btn-cargo').forEach(btn => {
+        btn.className = 'btn-cargo px-3 py-1.5 rounded-xl font-bold text-xs bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 transition';
+      });
+      const activeBtn = document.getElementById(`btn-cargo-${cargo}`);
+      if (activeBtn) {
+        activeBtn.className = 'btn-cargo px-3 py-1.5 rounded-xl font-bold text-xs bg-slate-900 text-white shadow-sm transition';
+      }
+      applyFilters();
+    }
+
+    function applyFilters() {
+      const ufFilter = document.getElementById('filter-uf').value;
+      const search = document.getElementById('filter-search').value.toLowerCase().trim();
+
+      const filtered = CANDS_DATA.filter(c => {
+        // Filtro por Cargo
+        if (filterCargo === 'Governador' && c.cargo !== 'Governador') return false;
+        if (filterCargo === 'Senador' && c.cargo !== 'Senador') return false;
+        if (filterCargo === 'Deputado Federal' && c.cargo !== 'Deputado Federal') return false;
+        if (filterCargo === 'Estadual' && !c.cargo.includes('Estadual') && !c.cargo.includes('Distrital')) return false;
+
+        // Filtro por Estado
+        if (ufFilter !== 'todos' && c.uf !== ufFilter) return false;
+
+        // Filtro por Busca
+        if (search) {
+          const matchName = (c.nmu || '').toLowerCase().includes(search) || (c.nm || '').toLowerCase().includes(search);
+          const matchParty = (c.sg || '').toLowerCase().includes(search);
+          const matchUf = (c.uf || '').toLowerCase().includes(search);
+          if (!matchName && !matchParty && !matchUf) return false;
+        }
+
+        return true;
+      });
+
+      document.getElementById('cands-counter-badge').innerText = `Exibindo ${filtered.length} candidatos`;
+
+      const grid = document.getElementById('cands-grid');
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full py-12 text-center text-slate-400">
+            <span class="text-3xl block mb-2">🔍</span>
+            <p class="font-bold">Nenhum candidato encontrado com os filtros selecionados.</p>
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = filtered.map(c => `
+        <div class="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm hover:shadow-md transition flex flex-col justify-between space-y-3">
+          
+          <div class="space-y-1.5">
+            <div class="flex items-center justify-between gap-2">
+              <span class="text-[10px] font-black uppercase px-2 py-0.5 rounded-full bg-slate-100 text-slate-700">
+                ${c.cargo} • ${c.uf}
+              </span>
+              <span class="text-[10px] font-black px-2 py-0.5 rounded-full border ${c.badgeColor || 'bg-slate-100 text-slate-800'}">
+                ${c.status || 'Liderando'}
               </span>
             </div>
-            <span class="text-xs font-semibold text-amber-800">
-              Próxima revisão em ${nextMilestone}% (faltam ${remainingToNext} p.p.)
-            </span>
-          </div>
 
-          <div class="w-full bg-amber-200/70 rounded-full h-2.5 overflow-hidden">
-            <div class="bg-gradient-to-r from-amber-500 to-amber-600 h-2.5 rounded-full transition-all duration-500" style="width: ${progressInCycle}%"></div>
-          </div>
-          <div class="flex justify-between text-[10px] text-amber-700 font-medium">
-            <span>Marco ${currentMilestone}%</span>
-            <span>Progresso do ciclo atual: ${progressInCycle}% concluído</span>
-            <span>Marco ${nextMilestone}%</span>
-          </div>
-        </div>
-
-        <!-- Veredito Direto -->
-        <div class="p-4 sm:p-5 rounded-2xl bg-slate-900 text-white space-y-2.5 shadow-md">
-          <div class="flex items-center justify-between gap-2 border-b border-slate-800 pb-2">
-            <div class="flex items-center gap-2">
-              <span class="text-lg">⚖️</span>
-              <h4 class="font-black text-sm sm:text-base text-amber-400">
-                Diagnóstico Oficial no Marco de ${currentMilestone}%
-              </h4>
+            <div class="flex items-start gap-3 pt-1">
+              <div class="w-10 h-10 rounded-xl bg-slate-900 text-amber-400 font-black text-sm flex items-center justify-center flex-shrink-0 shadow-sm">
+                ${c.n}
+              </div>
+              <div class="min-w-0 flex-1">
+                <h4 class="font-black text-sm text-slate-900 leading-tight truncate" title="${c.nmu}">
+                  ${c.nmu}
+                </h4>
+                <div class="text-[11px] text-slate-500 font-bold truncate">
+                  ${c.sg} • ${c.nm}
+                </div>
+              </div>
             </div>
-            <span class="bg-emerald-500 text-slate-950 text-[10px] font-black px-2 py-0.5 rounded shadow">
-              2º TURNO: ${secondRoundProb} DE PROBABILIDADE
-            </span>
           </div>
-          <p class="text-xs sm:text-sm text-slate-200 leading-relaxed">
-            <strong>Flávio Bolsonaro NÃO liquida no 1º turno.</strong> ${phaseDesc}
-          </p>
-        </div>
 
-        <!-- PROJEÇÃO MATEMÁTICA PREDITIVA DE FECHAMENTO -->
-        <div class="p-4 sm:p-5 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
-          <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+          <div class="border-t border-slate-100 pt-2.5 flex items-center justify-between text-xs">
             <div>
-              <span class="text-[10px] font-black text-slate-400 uppercase tracking-wider block">Algoritmo Estatístico Ponderado</span>
-              <h4 class="text-sm sm:text-base font-black text-slate-900">Projeção de Resultado Final do 1º Turno</h4>
+              <span class="text-slate-400 block text-[10px] font-semibold">Votos Nominais:</span>
+              <strong class="text-slate-800 text-xs font-black">${fmt(c.vap)}</strong>
             </div>
-            <span class="text-xs text-slate-500 font-bold">${fmt(projValid)} votos válidos est.</span>
-          </div>
-
-          <!-- Cards de Projeção -->
-          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-1">
-            <div class="p-3 bg-blue-50 border border-blue-200 rounded-xl">
-              <span class="text-[10px] font-bold text-blue-700 uppercase">Flávio (Projetado)</span>
-              <div class="text-2xl font-black text-blue-800">${projFPct}%</div>
-              <span class="text-[11px] text-blue-600 font-semibold">${fmt(projFlavio)} votos</span>
-            </div>
-
-            <div class="p-3 bg-red-50 border border-red-200 rounded-xl">
-              <span class="text-[10px] font-bold text-red-700 uppercase">Lula (Projetado)</span>
-              <div class="text-2xl font-black text-red-800">${projLPct}%</div>
-              <span class="text-[11px] text-red-600 font-semibold">${fmt(projLula)} votos</span>
-            </div>
-
-            <div class="col-span-2 sm:col-span-1 p-3 bg-slate-50 border border-slate-200 rounded-xl">
-              <span class="text-[10px] font-bold text-slate-500 uppercase">Outros Candidatos</span>
-              <div class="text-2xl font-black text-slate-700">${projOutrosPct}%</div>
-              <span class="text-[11px] text-slate-500 font-semibold">Cury, Caiado, etc.</span>
+            <div class="text-right">
+              <span class="text-slate-400 block text-[10px] font-semibold">Percentual:</span>
+              <strong class="text-emerald-700 text-sm font-black">${c.pvap}%</strong>
             </div>
           </div>
 
-          <p class="text-[11px] text-slate-500 italic pt-1">
-            * Modelo preditivo calibrado estado a estado com base nas taxas de apuração em tempo real e na densidade demográfica dos municípios ainda não totalizados.
-          </p>
         </div>
-
-        <!-- QUADRO REGIONAL: ONDE ESTÃO OS VOTOS QUE FALTAM? -->
-        <div class="p-4 sm:p-5 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
-          <div class="flex items-center justify-between border-b border-slate-100 pb-2">
-            <h4 class="text-sm sm:text-base font-black text-slate-900">
-              Onde estão as urnas que faltam apurar? (Balanço Regional)
-            </h4>
-            <span class="text-[11px] text-slate-400 font-medium">Dados oficiais TSE</span>
-          </div>
-
-          <div class="overflow-x-auto">
-            <table class="w-full text-xs text-left">
-              <thead class="text-[10px] text-slate-400 uppercase border-b border-slate-100 bg-slate-50/50">
-                <tr>
-                  <th class="py-2 px-2.5">Região</th>
-                  <th class="py-2 px-2.5 text-center">Urnas Apuradas</th>
-                  <th class="py-2 px-2.5 text-center">Urnas Pendentes</th>
-                  <th class="py-2 px-2.5 text-right text-blue-700">Flávio %</th>
-                  <th class="py-2 px-2.5 text-right text-red-600">Lula %</th>
-                  <th class="py-2 px-2.5 text-right">Liderança</th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-slate-100">
-                <tr class="hover:bg-slate-50/50">
-                  <td class="py-2.5 px-2.5 font-bold text-slate-900 flex items-center gap-1.5">
-                    <span class="w-2 h-2 rounded-full bg-red-500"></span> Nordeste
-                  </td>
-                  <td class="py-2.5 px-2.5 text-center font-bold text-amber-700">${regStats.NE.pst}%</td>
-                  <td class="py-2.5 px-2.5 text-center text-slate-500 font-semibold">${fmt(regStats.NE.pending)} seções</td>
-                  <td class="py-2.5 px-2.5 text-right font-bold text-blue-700">${regStats.NE.fPct}%</td>
-                  <td class="py-2.5 px-2.5 text-right font-bold text-red-600">${regStats.NE.lPct}%</td>
-                  <td class="py-2.5 px-2.5 text-right font-black text-red-600">Lula (+31,6 p.p.)</td>
-                </tr>
-                <tr class="hover:bg-slate-50/50">
-                  <td class="py-2.5 px-2.5 font-bold text-slate-900 flex items-center gap-1.5">
-                    <span class="w-2 h-2 rounded-full bg-blue-500"></span> Sudeste
-                  </td>
-                  <td class="py-2.5 px-2.5 text-center font-bold text-amber-700">${regStats.SE.pst}%</td>
-                  <td class="py-2.5 px-2.5 text-center text-slate-500 font-semibold">${fmt(regStats.SE.pending)} seções</td>
-                  <td class="py-2.5 px-2.5 text-right font-bold text-blue-700">${regStats.SE.fPct}%</td>
-                  <td class="py-2.5 px-2.5 text-right font-bold text-red-600">${regStats.SE.lPct}%</td>
-                  <td class="py-2.5 px-2.5 text-right font-black text-blue-700">Flávio (+17,6 p.p.)</td>
-                </tr>
-                <tr class="hover:bg-slate-50/50">
-                  <td class="py-2.5 px-2.5 font-bold text-slate-900 flex items-center gap-1.5">
-                    <span class="w-2 h-2 rounded-full bg-blue-600"></span> Sul
-                  </td>
-                  <td class="py-2.5 px-2.5 text-center font-bold text-emerald-700">${regStats.S.pst}%</td>
-                  <td class="py-2.5 px-2.5 text-center text-slate-500 font-semibold">${fmt(regStats.S.pending)} seções</td>
-                  <td class="py-2.5 px-2.5 text-right font-bold text-blue-700">${regStats.S.fPct}%</td>
-                  <td class="py-2.5 px-2.5 text-right font-bold text-red-600">${regStats.S.lPct}%</td>
-                  <td class="py-2.5 px-2.5 text-right font-black text-blue-700">Flávio (+30,2 p.p.)</td>
-                </tr>
-                <tr class="hover:bg-slate-50/50">
-                  <td class="py-2.5 px-2.5 font-bold text-slate-900 flex items-center gap-1.5">
-                    <span class="w-2 h-2 rounded-full bg-blue-600"></span> Centro-Oeste
-                  </td>
-                  <td class="py-2.5 px-2.5 text-center font-bold text-emerald-700">${regStats.CO.pst}%</td>
-                  <td class="py-2.5 px-2.5 text-center text-slate-500 font-semibold">${fmt(regStats.CO.pending)} seções</td>
-                  <td class="py-2.5 px-2.5 text-right font-bold text-blue-700">${regStats.CO.fPct}%</td>
-                  <td class="py-2.5 px-2.5 text-right font-bold text-red-600">${regStats.CO.lPct}%</td>
-                  <td class="py-2.5 px-2.5 text-right font-black text-blue-700">Flávio (+27,3 p.p.)</td>
-                </tr>
-                <tr class="hover:bg-slate-50/50">
-                  <td class="py-2.5 px-2.5 font-bold text-slate-900 flex items-center gap-1.5">
-                    <span class="w-2 h-2 rounded-full bg-blue-400"></span> Norte
-                  </td>
-                  <td class="py-2.5 px-2.5 text-center font-bold text-emerald-700">${regStats.N.pst}%</td>
-                  <td class="py-2.5 px-2.5 text-center text-slate-500 font-semibold">${fmt(regStats.N.pending)} seções</td>
-                  <td class="py-2.5 px-2.5 text-right font-bold text-blue-700">${regStats.N.fPct}%</td>
-                  <td class="py-2.5 px-2.5 text-right font-bold text-red-600">${regStats.N.lPct}%</td>
-                  <td class="py-2.5 px-2.5 text-right font-black text-blue-700">Flávio (+10,5 p.p.)</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <!-- COMPARATIVO HISTÓRICO: ELEIÇÕES 2022 vs ELEIÇÕES 2026 -->
-        <div class="p-4 sm:p-5 rounded-2xl bg-amber-50/50 border border-amber-200/70 space-y-2.5">
-          <h4 class="font-bold text-slate-900 text-sm flex items-center gap-2">
-            <span>📊</span> Comparativo Histórico: O Que Aconteceu em 2022 no Mesmo Marco?
-          </h4>
-          <p class="text-xs text-slate-600 leading-relaxed">
-            Em 2022, no marco de <strong>${currentMilestone}%</strong> de urnas apuradas, Jair Bolsonaro também liderava nacionalmente com cerca de <strong>48,5% a 49,0%</strong> contra 42,5% de Lula.
-            À medida que as urnas do Nordeste e das periferias de SP/MG avançaram após os 60%, a diferença despencou e Lula fechou o 1º turno na frente (48,43% a 43,20%). O comportamento em 2026 replica a mesma curva geográfica com 98,7% de correlação estatística.
-          </p>
-        </div>
-      `;
+      `).join('');
     }
 
     function initTooltip() {
@@ -1472,21 +6067,14 @@
 
         g.addEventListener('click', () => {
           updateSelectedCard(uf);
+          // Atualiza também o filtro da seção de eleitos para o estado clicado!
+          const ufSelect = document.getElementById('filter-uf');
+          if (ufSelect) {
+            ufSelect.value = uf;
+            applyFilters();
+          }
         });
       });
-    }
-
-    function openAnalysisModal() {
-      renderDynamicAnalysis();
-      const modal = document.getElementById('analysis-modal');
-      modal.classList.remove('hidden');
-      setTimeout(() => modal.classList.remove('opacity-0'), 10);
-    }
-
-    function closeAnalysisModal() {
-      const modal = document.getElementById('analysis-modal');
-      modal.classList.add('opacity-0');
-      setTimeout(() => modal.classList.add('hidden'), 200);
     }
 
     // Auto-polling 1 second
@@ -1504,7 +6092,8 @@
           if (fresh && fresh.BR) {
             if (fresh.BR.st !== TSE_DATA.BR.st || fresh.BR.tv !== TSE_DATA.BR.tv) {
               Object.assign(TSE_DATA, fresh);
-              renderMapAndScore();
+              renderAnalysisSection();
+              renderMap();
             }
           }
         }
@@ -1513,7 +6102,9 @@
 
     window.addEventListener('DOMContentLoaded', () => {
       initTooltip();
-      renderMapAndScore();
+      renderAnalysisSection();
+      renderMap();
+      applyFilters();
       setInterval(pollLive, 1000);
     });
   </script>
