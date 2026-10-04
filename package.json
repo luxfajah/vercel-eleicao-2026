@@ -1,0 +1,8 @@
+{
+  "name": "apuracao-presidencial-2026",
+  "version": "1.0.0",
+  "description": "Painel Oficial de Apuração Presidencial 2026 com Mapa do Brasil",
+  "scripts": {
+    "start": "serve ."
+  }
+}
